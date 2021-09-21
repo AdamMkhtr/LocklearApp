@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController" customModule="LocklearApp" customModuleProvider="target">
+            <connections>
+                <outlet property="sideContainer" destination="eB8-nl-dxE" id="csR-yo-DUU"/>
+                <outlet property="sideMenuView" destination="6cN-wS-w4X" id="WE3-JW-xyf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-wS-w4X">
+                    <rect key="frame" x="0.0" y="44" width="414" height="109"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="6cN-wS-w4X" secondAttribute="height" multiplier="414:109" id="gVc-xF-9oO"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB8-nl-dxE" userLabel="sideContainer">
+                    <rect key="frame" x="0.0" y="44" width="314" height="818"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.082467220719999998" green="0.097605608400000002" blue="0.1254942715" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eB8-nl-dxE" secondAttribute="bottom" id="CGq-d8-DGT"/>
+                <constraint firstItem="6cN-wS-w4X" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="O0x-MJ-ne1"/>
+                <constraint firstItem="eB8-nl-dxE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="WSH-Dp-eZ4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eB8-nl-dxE" secondAttribute="trailing" constant="100" id="cX9-rn-1fs"/>
+                <constraint firstItem="6cN-wS-w4X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cmd-z5-5hZ"/>
+                <constraint firstItem="6cN-wS-w4X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lGP-m0-2nH"/>
+                <constraint firstItem="eB8-nl-dxE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xdk-aA-9yO"/>
+            </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Wro-SB-tKb" appends="YES" id="Yev-j3-yJR"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
+        </view>
+        <tapGestureRecognizer id="Wro-SB-tKb">
+            <connections>
+                <action selector="dismissMenu:" destination="-1" id="HVH-fM-8WZ"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

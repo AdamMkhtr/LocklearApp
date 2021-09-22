@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
   var didTapMenu: (() -> Void)?
+  var didTapNotification: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,5 +24,8 @@ class HomeViewController: UIViewController {
     didTapMenu?()
   }
 
+  @IBAction func notificationButton(_ sender: Any) {
+    didTapNotification?()
+  }
 
 }

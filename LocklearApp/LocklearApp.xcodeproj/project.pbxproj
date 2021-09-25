@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		A69188D226FB6A6400EB9B4E /* NotificationSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */; };
 		A69188D326FB6A6400EB9B4E /* NotificationSideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */; };
+		A69188D626FDEA3600EB9B4E /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D426FDEA3600EB9B4E /* StreamViewController.swift */; };
+		A69188D726FDEA3600EB9B4E /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188D526FDEA3600EB9B4E /* StreamViewController.xib */; };
+		A69188DA26FDEA4B00EB9B4E /* InstagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D826FDEA4B00EB9B4E /* InstagramViewController.swift */; };
+		A69188DB26FDEA4B00EB9B4E /* InstagramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188D926FDEA4B00EB9B4E /* InstagramViewController.xib */; };
+		A69188DE26FDEA6E00EB9B4E /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188DC26FDEA6E00EB9B4E /* SongViewController.swift */; };
+		A69188DF26FDEA6E00EB9B4E /* SongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188DD26FDEA6E00EB9B4E /* SongViewController.xib */; };
+		A69188E226FDEA9C00EB9B4E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188E026FDEA9C00EB9B4E /* VideoViewController.swift */; };
+		A69188E326FDEA9C00EB9B4E /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188E126FDEA9C00EB9B4E /* VideoViewController.xib */; };
 		A6B711A026F0F4E8004BF549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7119F26F0F4E8004BF549 /* AppDelegate.swift */; };
 		A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */; };
 		A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B711A826F0F4E8004BF549 /* Assets.xcassets */; };
@@ -24,6 +32,14 @@
 /* Begin PBXFileReference section */
 		A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSideMenuViewController.swift; sourceTree = "<group>"; };
 		A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSideMenuViewController.xib; sourceTree = "<group>"; };
+		A69188D426FDEA3600EB9B4E /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
+		A69188D526FDEA3600EB9B4E /* StreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
+		A69188D826FDEA4B00EB9B4E /* InstagramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramViewController.swift; sourceTree = "<group>"; };
+		A69188D926FDEA4B00EB9B4E /* InstagramViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstagramViewController.xib; sourceTree = "<group>"; };
+		A69188DC26FDEA6E00EB9B4E /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		A69188DD26FDEA6E00EB9B4E /* SongViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongViewController.xib; sourceTree = "<group>"; };
+		A69188E026FDEA9C00EB9B4E /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		A69188E126FDEA9C00EB9B4E /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		A6B7119C26F0F4E8004BF549 /* LocklearApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocklearApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B7119F26F0F4E8004BF549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +107,10 @@
 				A6B711BC26F10A43004BF549 /* MenuViewController.xib */,
 				A6B711C026F10A64004BF549 /* HomeViewController.xib */,
 				A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */,
+				A69188D526FDEA3600EB9B4E /* StreamViewController.xib */,
+				A69188D926FDEA4B00EB9B4E /* InstagramViewController.xib */,
+				A69188DD26FDEA6E00EB9B4E /* SongViewController.xib */,
+				A69188E126FDEA9C00EB9B4E /* VideoViewController.xib */,
 				A6B711AA26F0F4E8004BF549 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -103,6 +123,10 @@
 				A6B711BB26F10A43004BF549 /* MenuViewController.swift */,
 				A6C29BD226FA268E00B77143 /* ContainerViewController.swift */,
 				A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */,
+				A69188D426FDEA3600EB9B4E /* StreamViewController.swift */,
+				A69188D826FDEA4B00EB9B4E /* InstagramViewController.swift */,
+				A69188DC26FDEA6E00EB9B4E /* SongViewController.swift */,
+				A69188E026FDEA9C00EB9B4E /* VideoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,11 +198,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69188DF26FDEA6E00EB9B4E /* SongViewController.xib in Resources */,
 				A6B711AC26F0F4E8004BF549 /* LaunchScreen.storyboard in Resources */,
+				A69188DB26FDEA4B00EB9B4E /* InstagramViewController.xib in Resources */,
 				A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */,
 				A6B711C226F10A64004BF549 /* HomeViewController.xib in Resources */,
 				A69188D326FB6A6400EB9B4E /* NotificationSideMenuViewController.xib in Resources */,
+				A69188D726FDEA3600EB9B4E /* StreamViewController.xib in Resources */,
 				A6B711BE26F10A43004BF549 /* MenuViewController.xib in Resources */,
+				A69188E326FDEA9C00EB9B4E /* VideoViewController.xib in Resources */,
 				A6C29BD526FA268E00B77143 /* ContainerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +223,11 @@
 				A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */,
 				A69188D226FB6A6400EB9B4E /* NotificationSideMenuViewController.swift in Sources */,
 				A6C29BD426FA268E00B77143 /* ContainerViewController.swift in Sources */,
+				A69188DA26FDEA4B00EB9B4E /* InstagramViewController.swift in Sources */,
+				A69188DE26FDEA6E00EB9B4E /* SongViewController.swift in Sources */,
 				A6B711BD26F10A43004BF549 /* MenuViewController.swift in Sources */,
+				A69188E226FDEA9C00EB9B4E /* VideoViewController.swift in Sources */,
+				A69188D626FDEA3600EB9B4E /* StreamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

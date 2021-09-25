@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController" customModule="LocklearApp" customModuleProvider="target">
             <connections>
+                <outlet property="baseContainerView" destination="tRP-MV-jMq" id="UWP-BZ-nGM"/>
                 <outlet property="sideContainer" destination="eB8-nl-dxE" id="csR-yo-DUU"/>
                 <outlet property="sideMenuView" destination="6cN-wS-w4X" id="WE3-JW-xyf"/>
                 <outlet property="sideNotificationContainer" destination="omF-b4-Crw" id="Eiz-RN-Rfo"/>
@@ -23,11 +24,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-wS-w4X">
-                    <rect key="frame" x="0.0" y="44" width="414" height="109"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="113"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="6cN-wS-w4X" secondAttribute="height" multiplier="414:109" id="gVc-xF-9oO"/>
+                        <constraint firstAttribute="width" secondItem="6cN-wS-w4X" secondAttribute="height" multiplier="414:113" id="3av-mZ-9iM"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRP-MV-jMq">
+                    <rect key="frame" x="0.0" y="157" width="414" height="705"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omF-b4-Crw" userLabel="notificationContainer">
                     <rect key="frame" x="100" y="0.0" width="314" height="862"/>
@@ -44,15 +49,19 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="omF-b4-Crw" secondAttribute="trailing" id="BoS-TL-0SK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eB8-nl-dxE" secondAttribute="bottom" id="CGq-d8-DGT"/>
-                <constraint firstItem="6cN-wS-w4X" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="O0x-MJ-ne1"/>
+                <constraint firstItem="tRP-MV-jMq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I1a-dS-TtR"/>
+                <constraint firstItem="6cN-wS-w4X" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jlv-cT-fop"/>
+                <constraint firstItem="6cN-wS-w4X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RRj-1J-DuD"/>
                 <constraint firstItem="omF-b4-Crw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="SbS-9a-eQ6"/>
                 <constraint firstItem="eB8-nl-dxE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="WSH-Dp-eZ4"/>
                 <constraint firstItem="omF-b4-Crw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bOP-cJ-OUz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eB8-nl-dxE" secondAttribute="trailing" constant="100" id="cX9-rn-1fs"/>
-                <constraint firstItem="6cN-wS-w4X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cmd-z5-5hZ"/>
-                <constraint firstItem="6cN-wS-w4X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lGP-m0-2nH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tRP-MV-jMq" secondAttribute="bottom" id="duO-oP-bfu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="omF-b4-Crw" secondAttribute="bottom" id="t0W-B8-MAP"/>
+                <constraint firstItem="6cN-wS-w4X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="u3K-MQ-CJx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tRP-MV-jMq" secondAttribute="trailing" id="wUi-pX-MtN"/>
                 <constraint firstItem="eB8-nl-dxE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xdk-aA-9yO"/>
+                <constraint firstItem="tRP-MV-jMq" firstAttribute="top" secondItem="6cN-wS-w4X" secondAttribute="bottom" id="zFa-vR-I3z"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="Wro-SB-tKb" appends="YES" id="Yev-j3-yJR"/>
@@ -66,6 +75,9 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

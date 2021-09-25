@@ -29,6 +29,7 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.12963467840000001" green="0.1600207686" blue="0.20785003899999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="tintColor" red="0.40784313729999999" green="0.41176470590000003" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="gvh-jq-4Am" firstAttribute="centerX" secondItem="dQW-uF-3eN" secondAttribute="centerX" id="7hg-hY-hO5"/>
                         <constraint firstItem="gvh-jq-4Am" firstAttribute="centerY" secondItem="dQW-uF-3eN" secondAttribute="centerY" id="Kkr-7L-4M8"/>

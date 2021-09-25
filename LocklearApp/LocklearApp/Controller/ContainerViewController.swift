@@ -24,7 +24,8 @@ let notificationController = NotificationSideMenuViewController(nibName: nil, bu
 @IBOutlet weak var sideMenuView: UIView!
 @IBOutlet weak var sideNotificationContainer: UIView!
 @IBOutlet weak var sideContainer: UIView!
-
+  @IBOutlet weak var baseContainerView: UIView!
+  
 //----------------------------------------------------------------------------
 // MARK: - Init
 //----------------------------------------------------------------------------
@@ -63,6 +64,15 @@ func configureHomeController() {
   sideMenuView.addSubview(homeController.view)
   addChild(homeController)
   homeController.didMove(toParent: self)
+
+  homeController.view.translatesAutoresizingMaskIntoConstraints = false
+
+  NSLayoutConstraint.activate([
+    homeController.view.topAnchor.constraint(equalTo: sideMenuView.topAnchor),
+    homeController.view.bottomAnchor.constraint(equalTo: sideMenuView.bottomAnchor),
+    homeController.view.leadingAnchor.constraint(equalTo: sideMenuView.leadingAnchor),
+    homeController.view.trailingAnchor.constraint(equalTo: sideMenuView.trailingAnchor),
+  ])
 }
 
 func configureMenuController() {

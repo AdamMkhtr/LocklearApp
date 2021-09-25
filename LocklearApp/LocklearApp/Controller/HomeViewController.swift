@@ -9,16 +9,26 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+  //----------------------------------------------------------------------------
+  // MARK: - Properties
+  //----------------------------------------------------------------------------
+
   var didTapMenu: (() -> Void)?
   var didTapNotification: (() -> Void)?
 
+  //----------------------------------------------------------------------------
+  // MARK: - Inits
+  //----------------------------------------------------------------------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        // Do any additional setup after loading the view.
     }
 
+  //----------------------------------------------------------------------------
+  // MARK: - Outlets
+  //----------------------------------------------------------------------------
+
+  @IBOutlet weak var StreamButton: UITabBarItem!
 
   @IBAction func menuButton(_ sender: Any) {
     didTapMenu?()
@@ -27,5 +37,10 @@ class HomeViewController: UIViewController {
   @IBAction func notificationButton(_ sender: Any) {
     didTapNotification?()
   }
+
+  //----------------------------------------------------------------------------
+  // MARK: - Methods
+  //----------------------------------------------------------------------------
+
 
 }

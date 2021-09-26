@@ -15,6 +15,10 @@ class HomeViewController: UIViewController {
 
   var didTapMenu: (() -> Void)?
   var didTapNotification: (() -> Void)?
+  var didTapStream: (() -> Void)?
+  var didTapVideo: (() -> Void)?
+  var didTapInstagram: (() -> Void)?
+  var didTapSong: (() -> Void)?
 
   //----------------------------------------------------------------------------
   // MARK: - Outlets
@@ -51,7 +55,6 @@ class HomeViewController: UIViewController {
     tapGestureSong.addTarget(self, action: #selector(tapSong))
   }
 
-
   //----------------------------------------------------------------------------
   // MARK: - Action
   //----------------------------------------------------------------------------
@@ -65,32 +68,44 @@ class HomeViewController: UIViewController {
     didTapNotification?()
   }
 
-
   //----------------------------------------------------------------------------
   // MARK: - OBJC Mehtods
   //----------------------------------------------------------------------------
 
-
   @objc func tapStream() {
-    print("HELLO STREAM")
+    recolorAllView()
+    streamBarView.backgroundColor = #colorLiteral(red: 0.07869828492, green: 0.0981830731, blue: 0.1287542284, alpha: 1)
+    didTapStream?()
   }
 
   @objc func tapVideo() {
-    print("HELLO Video")
+    recolorAllView()
+    videoBarView.backgroundColor = #colorLiteral(red: 0.07869828492, green: 0.0981830731, blue: 0.1287542284, alpha: 1)
+    didTapVideo?()
   }
 
   @objc func tapInstagram() {
-    print("HELLO Insta")
+    recolorAllView()
+    instagramBarView.backgroundColor = #colorLiteral(red: 0.07869828492, green: 0.0981830731, blue: 0.1287542284, alpha: 1)
+    didTapInstagram?()
   }
 
   @objc func tapSong() {
-    print("HELLO Song")
+    recolorAllView()
+    songBarView.backgroundColor = #colorLiteral(red: 0.07869828492, green: 0.0981830731, blue: 0.1287542284, alpha: 1)
+    didTapSong?()
   }
 
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
-
+  private func recolorAllView() {
+      let selectedViews: [UIView] =
+          [streamBarView, videoBarView, instagramBarView, songBarView]
+      for selectedView in selectedViews {
+        selectedView.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1607843137, blue: 0.2117647059, alpha: 1)
+      }
+  }
 
 }

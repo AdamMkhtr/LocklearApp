@@ -119,9 +119,9 @@
 		A6B711B526F0F534004BF549 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A6C29BD226FA268E00B77143 /* ContainerViewController.swift */,
 				A6B711BF26F10A64004BF549 /* HomeViewController.swift */,
 				A6B711BB26F10A43004BF549 /* MenuViewController.swift */,
-				A6C29BD226FA268E00B77143 /* ContainerViewController.swift */,
 				A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */,
 				A69188D426FDEA3600EB9B4E /* StreamViewController.swift */,
 				A69188D826FDEA4B00EB9B4E /* InstagramViewController.swift */,

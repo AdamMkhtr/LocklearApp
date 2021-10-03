@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstagramViewController" customModule="LocklearApp" customModuleProvider="target">
             <connections>
+                <outlet property="instagramTableView" destination="gBg-r5-D2Y" id="dcH-6u-YrT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,25 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gBg-r5-D2Y">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="f3D-5q-nea"/>
+                        <outlet property="delegate" destination="-1" id="99T-Jp-zl7"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="tintColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gBg-r5-D2Y" secondAttribute="trailing" id="1Zk-bW-kMz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gBg-r5-D2Y" secondAttribute="bottom" id="25k-aR-VkS"/>
+                <constraint firstItem="gBg-r5-D2Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gpt-ba-uZ3"/>
+                <constraint firstItem="gBg-r5-D2Y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fhA-w1-RjH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="132" y="108"/>
         </view>
     </objects>

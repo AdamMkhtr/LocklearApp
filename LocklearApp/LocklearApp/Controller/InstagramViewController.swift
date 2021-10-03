@@ -9,21 +9,31 @@ import UIKit
 
 class InstagramViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      // Do any additional setup after loading the view.
+  }
 
-        // Do any additional setup after loading the view.
-    }
+@IBOutlet weak var instagramTableView: UITableView!
+
+}
+
+//----------------------------------------------------------------------------
+// MARK: - Extension Datasource table view
+//----------------------------------------------------------------------------
+
+extension InstagramViewController: UITableViewDataSource {
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  return InstagramTableViewCell()
+}
 
 
-    /*
-    // MARK: - Navigation
+func numberOfSections(in tableView: UITableView) -> Int {
+  return 1
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+#warning("à update quand j'aurais crée l'array de photo")
+  return 2
+}
 }

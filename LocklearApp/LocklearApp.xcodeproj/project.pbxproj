@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230F70C2B04F97EE0109EF2E /* Pods_LocklearApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0162C53174A5038282BB57 /* Pods_LocklearApp.framework */; };
 		A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */; };
 		A6849B59270A0EB0000D3F99 /* InstagramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */; };
 		A6849B5C270A1008000D3F99 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5B270A1008000D3F99 /* Extension.swift */; };
@@ -35,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A0162C53174A5038282BB57 /* Pods_LocklearApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocklearApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A70EA782149D2E84CF6B322 /* Pods-LocklearApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocklearApp.debug.xcconfig"; path = "Target Support Files/Pods-LocklearApp/Pods-LocklearApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9F049E94F9BAF4B2BD38C81D /* Pods-LocklearApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocklearApp.release.xcconfig"; path = "Target Support Files/Pods-LocklearApp/Pods-LocklearApp.release.xcconfig"; sourceTree = "<group>"; };
 		A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTableViewCell.swift; sourceTree = "<group>"; };
 		A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstagramTableViewCell.xib; sourceTree = "<group>"; };
 		A6849B5B270A1008000D3F99 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -69,12 +73,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230F70C2B04F97EE0109EF2E /* Pods_LocklearApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91D30C816230A7920E3E8259 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A70EA782149D2E84CF6B322 /* Pods-LocklearApp.debug.xcconfig */,
+				9F049E94F9BAF4B2BD38C81D /* Pods-LocklearApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		927BE5BD3D66BA6A822CE1DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A0162C53174A5038282BB57 /* Pods_LocklearApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6849B5A270A0FF3000D3F99 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +111,8 @@
 			children = (
 				A6B7119E26F0F4E8004BF549 /* LocklearApp */,
 				A6B7119D26F0F4E8004BF549 /* Products */,
+				91D30C816230A7920E3E8259 /* Pods */,
+				927BE5BD3D66BA6A822CE1DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6B711B026F0F4E8004BF549 /* Build configuration list for PBXNativeTarget "LocklearApp" */;
 			buildPhases = (
+				85C954482738114E70FB1E9D /* [CP] Check Pods Manifest.lock */,
 				A6B7119826F0F4E8004BF549 /* Sources */,
 				A6B7119926F0F4E8004BF549 /* Frameworks */,
 				A6B7119A26F0F4E8004BF549 /* Resources */,
+				93A649318A6295E25342A18A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +263,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85C954482738114E70FB1E9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocklearApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93A649318A6295E25342A18A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocklearApp/Pods-LocklearApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocklearApp/Pods-LocklearApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LocklearApp/Pods-LocklearApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6B7119826F0F4E8004BF549 /* Sources */ = {
@@ -391,6 +460,7 @@
 		};
 		A6B711B126F0F4E8004BF549 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A70EA782149D2E84CF6B322 /* Pods-LocklearApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -410,6 +480,7 @@
 		};
 		A6B711B226F0F4E8004BF549 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F049E94F9BAF4B2BD38C81D /* Pods-LocklearApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

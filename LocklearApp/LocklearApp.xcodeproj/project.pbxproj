@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		A6849B5C270A1008000D3F99 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5B270A1008000D3F99 /* Extension.swift */; };
 		A6849B5E270A111F000D3F99 /* InstagramProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5D270A111F000D3F99 /* InstagramProvider.swift */; };
 		A6849B60270A116B000D3F99 /* InstagramConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5F270A116B000D3F99 /* InstagramConverter.swift */; };
+		A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */; };
+		A6849B64270A2682000D3F99 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B63270A2682000D3F99 /* APIKeys.swift */; };
 		A69188D226FB6A6400EB9B4E /* NotificationSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */; };
 		A69188D326FB6A6400EB9B4E /* NotificationSideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */; };
 		A69188D626FDEA3600EB9B4E /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D426FDEA3600EB9B4E /* StreamViewController.swift */; };
@@ -44,6 +46,8 @@
 		A6849B5B270A1008000D3F99 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A6849B5D270A111F000D3F99 /* InstagramProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramProvider.swift; sourceTree = "<group>"; };
 		A6849B5F270A116B000D3F99 /* InstagramConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramConverter.swift; sourceTree = "<group>"; };
+		A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCodable.swift; sourceTree = "<group>"; };
+		A6849B63270A2682000D3F99 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSideMenuViewController.swift; sourceTree = "<group>"; };
 		A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSideMenuViewController.xib; sourceTree = "<group>"; };
 		A69188D426FDEA3600EB9B4E /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +90,6 @@
 				8A70EA782149D2E84CF6B322 /* Pods-LocklearApp.debug.xcconfig */,
 				9F049E94F9BAF4B2BD38C81D /* Pods-LocklearApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +145,8 @@
 			children = (
 				A6849B5D270A111F000D3F99 /* InstagramProvider.swift */,
 				A6849B5F270A116B000D3F99 /* InstagramConverter.swift */,
+				A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */,
+				A6849B63270A2682000D3F99 /* APIKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6B711C126F10A64004BF549 /* HomeViewController.swift in Sources */,
+				A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */,
 				A6B711A026F0F4E8004BF549 /* AppDelegate.swift in Sources */,
 				A6849B5E270A111F000D3F99 /* InstagramProvider.swift in Sources */,
 				A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */,
@@ -324,6 +330,7 @@
 				A69188DE26FDEA6E00EB9B4E /* SongViewController.swift in Sources */,
 				A6B711BD26F10A43004BF549 /* MenuViewController.swift in Sources */,
 				A69188E226FDEA9C00EB9B4E /* VideoViewController.swift in Sources */,
+				A6849B64270A2682000D3F99 /* APIKeys.swift in Sources */,
 				A69188D626FDEA3600EB9B4E /* StreamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

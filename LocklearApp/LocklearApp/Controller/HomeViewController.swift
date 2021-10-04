@@ -62,6 +62,7 @@ class HomeViewController: UIViewController {
 
   @IBAction func menuButtonTapped(_ sender: Any) {
     didTapMenu?()
+    
   }
 
   @IBAction func notificationButtonTapped(_ sender: Any) {

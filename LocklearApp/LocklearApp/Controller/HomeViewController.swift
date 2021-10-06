@@ -88,6 +88,9 @@ class HomeViewController: UIViewController {
   @objc func tapInstagram() {
     recolorAllView()
     instagramBarView.backgroundColor = #colorLiteral(red: 0.07869828492, green: 0.0981830731, blue: 0.1287542284, alpha: 1)
+//    instagramConverter.convert() { [weak self] result in
+//      print("en cours")
+//    }
     didTapInstagram?()
   }
 

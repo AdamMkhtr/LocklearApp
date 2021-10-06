@@ -7,13 +7,13 @@
 
 import Foundation
 
-class InstagramConverter {
+class InstagramIDPicturesConverter {
 
 //----------------------------------------------------------------------------
 // MARK: - Error Management
 //----------------------------------------------------------------------------
 
-enum InstagramConverterError: Error {
+enum InstagramIDPicturesConverterError: Error {
   case noResponse
 }
 
@@ -21,7 +21,7 @@ enum InstagramConverterError: Error {
 // MARK: - Properties
 //----------------------------------------------------------------------------
 
-let instagramProvider = InstagramProvider()
+let instagramProvider = InstagramIDPicturesProvider()
 private(set) var picturesID = [String]()
 
 //----------------------------------------------------------------------------
@@ -31,11 +31,11 @@ private(set) var picturesID = [String]()
 /// Send the data on the API call to delegate
 /// - Parameter query: recup the list og ingredients for API call
 func convert(completion: @escaping ((Result<[String], Error>) -> Void)) {
-instagramProvider.fetchRecipes() { [weak self] result in
+instagramProvider.fetchIDPictures() { [weak self] result in
   switch result {
   case .success(let searchResult):
     guard let pictures = self?.convertFetchInstagramSuccess(searchResult: searchResult) else {
-      completion(.failure(InstagramConverterError.noResponse))
+      completion(.failure(InstagramIDPicturesConverterError.noResponse))
       return
     }
     self?.picturesID = pictures

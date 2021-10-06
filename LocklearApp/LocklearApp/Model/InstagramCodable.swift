@@ -7,6 +7,10 @@
 
 import Foundation
 
+//----------------------------------------------------------------------------
+// MARK: - Codable for IDPictures
+//----------------------------------------------------------------------------
+
 // MARK: - InstagramIDPictures
 struct InstagramIDPictures: Codable {
     let media: Media
@@ -33,3 +37,20 @@ struct Paging: Codable {
 struct Cursors: Codable {
     let before, after: String
 }
+
+//----------------------------------------------------------------------------
+// MARK: - Codable for Details Instagram Pictures
+//----------------------------------------------------------------------------
+
+struct DetailsPictures: Codable {
+    let id: String
+    let mediaURL: String
+    let caption: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case mediaURL = "media_url"
+        case caption
+    }
+}
+

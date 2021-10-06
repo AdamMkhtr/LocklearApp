@@ -8,9 +8,9 @@
 import Foundation
 import Alamofire
 
-class InstagramProvider {
+class InstagramIDPicturesProvider {
 
-  enum InstagramProviderError: LocalizedError {
+  enum InstagramIDPicturesProviderError: LocalizedError {
     case errorResponse
 
     var errorDescription: String? {
@@ -41,10 +41,10 @@ class InstagramProvider {
   /// - Parameters:
   ///   - querry: ingredients for API call
   ///   - completion: completion return an array with recipes
-  func fetchRecipes(
+  func fetchIDPictures(
     completion: @escaping ((Result<InstagramIDPictures, Error>) -> Void)
   ) {
-    var queryParameters: [String: Any] = [
+    let queryParameters: [String: Any] = [
       "fields": "media",
       "access_token": apiKey,
     ]
@@ -52,7 +52,7 @@ class InstagramProvider {
 
     request.responseJSON { (response) in
       guard let data = response.data else {
-        completion(.failure(InstagramProviderError.errorResponse))
+        completion(.failure(InstagramIDPicturesProviderError.errorResponse))
         return
       }
 
@@ -65,4 +65,6 @@ class InstagramProvider {
       }
     }
   }
+
+
 }

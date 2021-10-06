@@ -1,0 +1,69 @@
+//
+//  InstagramDetailsProvider.swift
+//  LocklearApp
+//
+//  Created by Adam Mokhtar on 04/10/2021.
+//
+
+import Foundation
+import Alamofire
+
+class InstagramDetailsProvider {
+
+  enum InstagramDetailsProviderError: LocalizedError {
+    case errorResponse
+
+    var errorDescription: String? {
+      switch self {
+      case .errorResponse: return "error response"
+      }
+    }
+  }
+
+  //----------------------------------------------------------------------------
+  // MARK: - Properties
+  //----------------------------------------------------------------------------
+
+  private var url = "https://graph.instagram.com/"
+
+  private let apiKey: String
+
+  init(apiKey: String = APIKeys.instagramAPIKey) {
+    self.apiKey = apiKey
+  }
+
+
+  //----------------------------------------------------------------------------
+  // MARK: - Methods
+  //----------------------------------------------------------------------------
+
+  /// Call the API edaman for collect data
+  /// - Parameters:
+  ///   - querry: ingredients for API call
+  ///   - completion: completion return an array with recipes
+  func fetchDetailsPictures(
+    idPicture : String,
+    completion: @escaping ((Result<DetailsPictures, Error>) -> Void)
+  ) {
+    let queryParameters: [String: Any] = [
+      "fields": "media_url",
+      "access_token": apiKey,
+    ]
+    let request = AF.request(url + idPicture, parameters: queryParameters)
+
+    request.responseJSON { (response) in
+      guard let data = response.data else {
+        completion(.failure(InstagramDetailsProviderError.errorResponse))
+        return
+      }
+
+      do {
+        let instagramJSON = try JSONDecoder().decode(DetailsPictures.self, from: data)
+        completion(.success(instagramJSON))
+      } catch {
+        print(error.localizedDescription)
+        completion(.failure(error))
+      }
+    }
+  }
+}

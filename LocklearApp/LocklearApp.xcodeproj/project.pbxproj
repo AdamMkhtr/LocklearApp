@@ -11,10 +11,12 @@
 		A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */; };
 		A6849B59270A0EB0000D3F99 /* InstagramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */; };
 		A6849B5C270A1008000D3F99 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5B270A1008000D3F99 /* Extension.swift */; };
-		A6849B5E270A111F000D3F99 /* InstagramProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5D270A111F000D3F99 /* InstagramProvider.swift */; };
-		A6849B60270A116B000D3F99 /* InstagramConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5F270A116B000D3F99 /* InstagramConverter.swift */; };
+		A6849B5E270A111F000D3F99 /* InstagramIDPicturesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5D270A111F000D3F99 /* InstagramIDPicturesProvider.swift */; };
+		A6849B60270A116B000D3F99 /* InstagramIDPicturesConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5F270A116B000D3F99 /* InstagramIDPicturesConverter.swift */; };
 		A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */; };
 		A6849B64270A2682000D3F99 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B63270A2682000D3F99 /* APIKeys.swift */; };
+		A6849B66270AFDC8000D3F99 /* InstagramDetailsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B65270AFDC8000D3F99 /* InstagramDetailsProvider.swift */; };
+		A6849B68270AFDD7000D3F99 /* InstagramDetailsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B67270AFDD7000D3F99 /* InstagramDetailsConverter.swift */; };
 		A69188D226FB6A6400EB9B4E /* NotificationSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */; };
 		A69188D326FB6A6400EB9B4E /* NotificationSideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */; };
 		A69188D626FDEA3600EB9B4E /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188D426FDEA3600EB9B4E /* StreamViewController.swift */; };
@@ -44,10 +46,12 @@
 		A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTableViewCell.swift; sourceTree = "<group>"; };
 		A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstagramTableViewCell.xib; sourceTree = "<group>"; };
 		A6849B5B270A1008000D3F99 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		A6849B5D270A111F000D3F99 /* InstagramProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramProvider.swift; sourceTree = "<group>"; };
-		A6849B5F270A116B000D3F99 /* InstagramConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramConverter.swift; sourceTree = "<group>"; };
+		A6849B5D270A111F000D3F99 /* InstagramIDPicturesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramIDPicturesProvider.swift; sourceTree = "<group>"; };
+		A6849B5F270A116B000D3F99 /* InstagramIDPicturesConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramIDPicturesConverter.swift; sourceTree = "<group>"; };
 		A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCodable.swift; sourceTree = "<group>"; };
 		A6849B63270A2682000D3F99 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		A6849B65270AFDC8000D3F99 /* InstagramDetailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDetailsProvider.swift; sourceTree = "<group>"; };
+		A6849B67270AFDD7000D3F99 /* InstagramDetailsConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDetailsConverter.swift; sourceTree = "<group>"; };
 		A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSideMenuViewController.swift; sourceTree = "<group>"; };
 		A69188D126FB6A6400EB9B4E /* NotificationSideMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSideMenuViewController.xib; sourceTree = "<group>"; };
 		A69188D426FDEA3600EB9B4E /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
@@ -143,10 +147,12 @@
 		A6B711B326F0F51C004BF549 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A6849B5D270A111F000D3F99 /* InstagramProvider.swift */,
-				A6849B5F270A116B000D3F99 /* InstagramConverter.swift */,
+				A6849B5D270A111F000D3F99 /* InstagramIDPicturesProvider.swift */,
+				A6849B5F270A116B000D3F99 /* InstagramIDPicturesConverter.swift */,
 				A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */,
 				A6849B63270A2682000D3F99 /* APIKeys.swift */,
+				A6849B65270AFDC8000D3F99 /* InstagramDetailsProvider.swift */,
+				A6849B67270AFDD7000D3F99 /* InstagramDetailsConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,10 +325,12 @@
 				A6B711C126F10A64004BF549 /* HomeViewController.swift in Sources */,
 				A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */,
 				A6B711A026F0F4E8004BF549 /* AppDelegate.swift in Sources */,
-				A6849B5E270A111F000D3F99 /* InstagramProvider.swift in Sources */,
+				A6849B5E270A111F000D3F99 /* InstagramIDPicturesProvider.swift in Sources */,
+				A6849B68270AFDD7000D3F99 /* InstagramDetailsConverter.swift in Sources */,
 				A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */,
 				A6849B5C270A1008000D3F99 /* Extension.swift in Sources */,
-				A6849B60270A116B000D3F99 /* InstagramConverter.swift in Sources */,
+				A6849B66270AFDC8000D3F99 /* InstagramDetailsProvider.swift in Sources */,
+				A6849B60270A116B000D3F99 /* InstagramIDPicturesConverter.swift in Sources */,
 				A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */,
 				A69188D226FB6A6400EB9B4E /* NotificationSideMenuViewController.swift in Sources */,
 				A6C29BD426FA268E00B77143 /* ContainerViewController.swift in Sources */,

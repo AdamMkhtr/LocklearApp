@@ -46,7 +46,7 @@ class InstagramDetailsProvider {
     completion: @escaping ((Result<DetailsPictures, Error>) -> Void)
   ) {
     let queryParameters: [String: Any] = [
-      "fields": "media_url",
+      "fields": "id,media_url,caption",
       "access_token": apiKey,
     ]
     let request = AF.request(url + idPicture, parameters: queryParameters)

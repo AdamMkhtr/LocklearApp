@@ -14,7 +14,7 @@ class InstagramIDPicturesConverter {
 //----------------------------------------------------------------------------
 
 enum InstagramIDPicturesConverterError: Error {
-  case noResponse
+case noResponse
 }
 
 //----------------------------------------------------------------------------
@@ -22,7 +22,7 @@ enum InstagramIDPicturesConverterError: Error {
 //----------------------------------------------------------------------------
 
 let instagramProvider = InstagramIDPicturesProvider()
-private(set) var picturesID = [String]()
+static private(set) var picturesID = [String]()
 
 //----------------------------------------------------------------------------
 // MARK: - Methods
@@ -30,20 +30,20 @@ private(set) var picturesID = [String]()
 
 /// Send the data on the API call to delegate
 /// - Parameter query: recup the list og ingredients for API call
-func convert(completion: @escaping ((Result<[String], Error>) -> Void)) {
+  func convertIDPictures(completion: @escaping ((Result<[String], Error>) -> Void)) {
 instagramProvider.fetchIDPictures() { [weak self] result in
-  switch result {
-  case .success(let searchResult):
-    guard let pictures = self?.convertFetchInstagramSuccess(searchResult: searchResult) else {
-      completion(.failure(InstagramIDPicturesConverterError.noResponse))
-      return
-    }
-    self?.picturesID = pictures
-    completion(.success(pictures))
-
-  case .failure(let error):
-    completion(.failure(error))
+switch result {
+case .success(let searchResult):
+  guard let pictures = self?.convertFetchInstagramSuccess(searchResult: searchResult) else {
+    completion(.failure(InstagramIDPicturesConverterError.noResponse))
+    return
   }
+  InstagramIDPicturesConverter.picturesID = pictures
+  completion(.success(pictures))
+
+case .failure(let error):
+  completion(.failure(error))
+}
 }
 }
 
@@ -51,9 +51,9 @@ instagramProvider.fetchIDPictures() { [weak self] result in
 /// or for send the array of id pictures
 /// - Parameter searchResult: collect the array of this class for work with
 private func convertFetchInstagramSuccess(searchResult: InstagramIDPictures) -> [String]? {
-  let pictures = searchResult.media.data.map { $0.id }
+let pictures = searchResult.media.data.map { $0.id }
 guard pictures.count > 0 else { return nil }
-  print(pictures)
+print(pictures)
 return pictures
 }
 

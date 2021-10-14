@@ -10,60 +10,60 @@ import Alamofire
 
 class InstagramIDPicturesProvider {
 
-  enum InstagramIDPicturesProviderError: LocalizedError {
-    case errorResponse
+enum InstagramIDPicturesProviderError: LocalizedError {
+  case errorResponse
 
-    var errorDescription: String? {
-      switch self {
-      case .errorResponse: return "error response"
-      }
+  var errorDescription: String? {
+    switch self {
+    case .errorResponse: return "error response"
     }
   }
+}
 
-  //----------------------------------------------------------------------------
-  // MARK: - Properties
-  //----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// MARK: - Properties
+//----------------------------------------------------------------------------
 
-  private var url = "https://graph.instagram.com/me?"
+private var url = "https://graph.instagram.com/me?"
 
-  private let apiKey: String
+private let apiKey: String
 
-  init(apiKey: String = APIKeys.instagramAPIKey) {
-    self.apiKey = apiKey
-  }
+init(apiKey: String = APIKeys.instagramAPIKey) {
+  self.apiKey = apiKey
+}
 
-  //----------------------------------------------------------------------------
-  // MARK: - Methods
-  //----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// MARK: - Methods
+//----------------------------------------------------------------------------
 
-  /// Call the API edaman for collect data
-  /// - Parameters:
-  ///   - querry: ingredients for API call
-  ///   - completion: completion return an array with recipes
-  func fetchIDPictures(
-    completion: @escaping ((Result<InstagramIDPictures, Error>) -> Void)
-  ) {
-    let queryParameters: [String: Any] = [
-      "fields": "media",
-      "access_token": apiKey,
-    ]
-    let request = AF.request(url, parameters: queryParameters)
+/// Call the API edaman for collect data
+/// - Parameters:
+///   - querry: ingredients for API call
+///   - completion: completion return id picture
+func fetchIDPictures(
+  completion: @escaping ((Result<InstagramIDPictures, Error>) -> Void)
+) {
+  let queryParameters: [String: Any] = [
+    "fields": "media",
+    "access_token": apiKey,
+  ]
+  let request = AF.request(url, parameters: queryParameters)
 
-    request.responseJSON { (response) in
-      guard let data = response.data else {
-        completion(.failure(InstagramIDPicturesProviderError.errorResponse))
-        return
-      }
+  request.responseJSON { (response) in
+    guard let data = response.data else {
+      completion(.failure(InstagramIDPicturesProviderError.errorResponse))
+      return
+    }
 
-      do {
-        let instagramJSON = try JSONDecoder().decode(InstagramIDPictures.self, from: data)
-        completion(.success(instagramJSON))
-      } catch {
-        print(error.localizedDescription)
-        completion(.failure(error))
-      }
+    do {
+      let instagramJSON = try JSONDecoder().decode(InstagramIDPictures.self, from: data)
+      completion(.success(instagramJSON))
+    } catch {
+      print(error.localizedDescription)
+      completion(.failure(error))
     }
   }
+}
 
 
 }

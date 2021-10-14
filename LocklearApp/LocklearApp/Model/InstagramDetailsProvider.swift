@@ -11,13 +11,13 @@ import Alamofire
 class InstagramDetailsProvider {
 
 enum InstagramDetailsProviderError: LocalizedError {
-  case errorResponse
+case errorResponse
 
-  var errorDescription: String? {
-    switch self {
-    case .errorResponse: return "error response"
-    }
+var errorDescription: String? {
+  switch self {
+  case .errorResponse: return "error response"
   }
+}
 }
 
 //----------------------------------------------------------------------------
@@ -29,7 +29,7 @@ private var url = "https://graph.instagram.com/"
 private let apiKey: String
 
 init(apiKey: String = APIKeys.instagramAPIKey) {
-  self.apiKey = apiKey
+self.apiKey = apiKey
 }
 
 
@@ -42,28 +42,28 @@ init(apiKey: String = APIKeys.instagramAPIKey) {
 ///   - idPicture: id of picture for which we want details
 ///   - completion: completion return details of picture
 func fetchDetailsPictures(
-  idPicture : String,
-  completion: @escaping ((Result<DetailsPictures, Error>) -> Void)
+idPicture : String,
+completion: @escaping ((Result<DetailsPictures, Error>) -> Void)
 ) {
-  let queryParameters: [String: Any] = [
-    "fields": "id,media_url,caption",
-    "access_token": apiKey,
-  ]
-  let request = AF.request(url + idPicture, parameters: queryParameters)
+let queryParameters: [String: Any] = [
+  "fields": "id,media_url,caption",
+  "access_token": apiKey,
+]
+let request = AF.request(url + idPicture, parameters: queryParameters)
 
-  request.responseJSON { (response) in
-    guard let data = response.data else {
-      completion(.failure(InstagramDetailsProviderError.errorResponse))
-      return
-    }
-
-    do {
-      let instagramJSON = try JSONDecoder().decode(DetailsPictures.self, from: data)
-      completion(.success(instagramJSON))
-    } catch {
-      print(error.localizedDescription)
-      completion(.failure(error))
-    }
+request.responseJSON { (response) in
+  guard let data = response.data else {
+    completion(.failure(InstagramDetailsProviderError.errorResponse))
+    return
   }
+
+  do {
+    let instagramJSON = try JSONDecoder().decode(DetailsPictures.self, from: data)
+    completion(.success(instagramJSON))
+  } catch {
+    print(error.localizedDescription)
+    completion(.failure(error))
+  }
+}
 }
 }

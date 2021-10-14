@@ -13,29 +13,29 @@ import Foundation
 
 // MARK: - InstagramIDPictures
 struct InstagramIDPictures: Codable {
-    let media: Media
-    let id: String
+  let media: Media
+  let id: String
 }
 
 // MARK: - Media
 struct Media: Codable {
-    let data: [Datum]
-    let paging: Paging
+  let data: [Datum]
+  let paging: Paging
 }
 
 // MARK: - Datum
 struct Datum: Codable {
-    let id: String
+  let id: String
 }
 
 // MARK: - Paging
 struct Paging: Codable {
-    let cursors: Cursors
+  let cursors: Cursors
 }
 
 // MARK: - Cursors
 struct Cursors: Codable {
-    let before, after: String
+  let before, after: String
 }
 
 //----------------------------------------------------------------------------
@@ -43,14 +43,14 @@ struct Cursors: Codable {
 //----------------------------------------------------------------------------
 
 struct DetailsPictures: Codable {
-    let id: String
-    let mediaURL: String
-    let caption: String
+  let id: String
+  let mediaURL: String
+  let caption: String?
 
-    enum CodingKeys: String, CodingKey {
-        case id
-        case mediaURL = "media_url"
-        case caption
-    }
+  enum CodingKeys: String, CodingKey {
+      case id
+      case mediaURL = "media_url"
+      case caption
+  }
 }
 

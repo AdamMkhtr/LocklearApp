@@ -9,34 +9,35 @@ import UIKit
 
 class InstagramTableViewCell: UITableViewCell {
 
-  //----------------------------------------------------------------------------
-  // MARK: - Properties
-  //----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// MARK: - Properties
+//----------------------------------------------------------------------------
 
-  @IBOutlet weak var pictureImageView: UIImageView!
-  @IBOutlet weak var captionPictureLabel: UILabel!
+@IBOutlet weak var pictureImageView: UIImageView!
+@IBOutlet weak var captionPictureLabel: UILabel!
 
-  //----------------------------------------------------------------------------
-  // MARK: - Init
-  //----------------------------------------------------------------------------
 
-  override func awakeFromNib() {
-      super.awakeFromNib()
-      // Initialization code
-  }
+//----------------------------------------------------------------------------
+// MARK: - Init
+//----------------------------------------------------------------------------
 
-  //----------------------------------------------------------------------------
-  // MARK: - Methods
-  //----------------------------------------------------------------------------
+override func awakeFromNib() {
+  super.awakeFromNib()
+  // Initialization code
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+//----------------------------------------------------------------------------
+// MARK: - Methods
+//----------------------------------------------------------------------------
 
-        // Configure the view for the selected state
-    }
-  func configure(icon: String, name: String) {
-    pictureImageView.load(link: icon)
-    captionPictureLabel.text = name
-  }
-    
+override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+
+    // Configure the view for the selected state
+}
+func configure(urlMedia: String, caption: String) {
+pictureImageView.load(link: urlMedia)
+captionPictureLabel.text = caption
+}
+
 }

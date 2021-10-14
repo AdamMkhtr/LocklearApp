@@ -21,6 +21,7 @@ let songController = SongViewController(nibName: nil, bundle: nil)
 let instagramController = InstagramViewController(nibName: nil, bundle: nil)
 let videoController = VideoViewController(nibName: nil, bundle: nil)
 
+
 //----------------------------------------------------------------------------
 // MARK: - Outlets
 //----------------------------------------------------------------------------
@@ -36,8 +37,8 @@ let videoController = VideoViewController(nibName: nil, bundle: nil)
 
 override func viewDidLoad() {
 super.viewDidLoad()
-configureAllContainer()
-configureInstagramController()
+configureAllMenuContainer()
+configureStreamController()
 setupSideMenu()
 setupBaseContainer()
 }
@@ -83,7 +84,7 @@ sideNotificationContainer.isHidden = true
 // MARK: - Configure Container
 //----------------------------------------------------------------------------
 
-func configureAllContainer() {
+func configureAllMenuContainer() {
 configureHomeController()
 configureSideMenuController()
 configureNotificationController()

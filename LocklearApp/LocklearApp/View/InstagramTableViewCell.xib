@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,24 +21,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="340" height="426"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Egm-Of-eqB">
-                                <rect key="frame" x="0.0" y="0.0" width="340" height="405"/>
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="408"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Egm-Of-eqB" secondAttribute="height" multiplier="5:6" id="tWe-FP-FID"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Légende de la photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6S-mG-U7f">
-                                <rect key="frame" x="0.0" y="405" width="340" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Légende de la photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6S-mG-U7f">
+                                <rect key="frame" x="0.0" y="408" width="340" height="18"/>
+                                <color key="backgroundColor" red="0.13354122639999999" green="0.16002246740000001" blue="0.20785000919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" red="0.082467220719999998" green="0.097605608400000002" blue="0.1254942715" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Egm-Of-eqB" firstAttribute="top" secondItem="Ren-0A-iuK" secondAttribute="top" id="462-m6-2at"/>
-                            <constraint firstItem="d6S-mG-U7f" firstAttribute="top" secondItem="Egm-Of-eqB" secondAttribute="bottom" id="6ea-Gb-CnZ"/>
-                            <constraint firstItem="Egm-Of-eqB" firstAttribute="leading" secondItem="Ren-0A-iuK" secondAttribute="leading" id="9eV-Bv-mZ1"/>
-                            <constraint firstAttribute="trailing" secondItem="Egm-Of-eqB" secondAttribute="trailing" id="Mav-qA-wDZ"/>
-                            <constraint firstAttribute="trailing" secondItem="d6S-mG-U7f" secondAttribute="trailing" id="NWR-ZJ-gjU"/>
-                            <constraint firstAttribute="bottom" secondItem="d6S-mG-U7f" secondAttribute="bottom" id="WGy-p6-25E"/>
-                            <constraint firstItem="d6S-mG-U7f" firstAttribute="leading" secondItem="Ren-0A-iuK" secondAttribute="leading" id="jm9-r9-Svk"/>
+                            <constraint firstItem="Egm-Of-eqB" firstAttribute="leading" secondItem="Ren-0A-iuK" secondAttribute="leading" id="3Jp-xn-49v"/>
+                            <constraint firstAttribute="trailing" secondItem="Egm-Of-eqB" secondAttribute="trailing" id="7Pd-Nv-YMd"/>
+                            <constraint firstAttribute="bottom" secondItem="d6S-mG-U7f" secondAttribute="bottom" id="8m7-cf-hL5"/>
+                            <constraint firstItem="d6S-mG-U7f" firstAttribute="top" secondItem="Egm-Of-eqB" secondAttribute="bottom" id="Dd7-Rq-eIe"/>
+                            <constraint firstItem="d6S-mG-U7f" firstAttribute="top" secondItem="Egm-Of-eqB" secondAttribute="bottom" id="Erf-61-qE0"/>
+                            <constraint firstItem="Egm-Of-eqB" firstAttribute="top" secondItem="Ren-0A-iuK" secondAttribute="top" id="KaI-AW-nYT"/>
+                            <constraint firstAttribute="trailing" secondItem="d6S-mG-U7f" secondAttribute="trailing" id="nvD-PR-CaH"/>
+                            <constraint firstItem="d6S-mG-U7f" firstAttribute="leading" secondItem="Ren-0A-iuK" secondAttribute="leading" id="xcG-eE-3Wf"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -58,9 +62,4 @@
             <point key="canvasLocation" x="152.17391304347828" y="12.053571428571429"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

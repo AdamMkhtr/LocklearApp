@@ -33,6 +33,15 @@ private(set) var detailsPictures = [DetailsPictures]()
 
 //17843154172023190 id instagram pict
 
+func checkIfPictureExist(id: String) -> Bool{
+for idPicture in detailsPictures {
+guard idPicture.id != id else {
+return true
+}
+}
+return false
+}
+
 /// Send the data on the API call to delegate
 /// - Parameter idPicture: recup the id picture for API
 func convert(idPicture : String, completion: @escaping ((Result<DetailsPictures, Error>) -> Void)) {
@@ -43,7 +52,6 @@ guard let pictures = self?.convertFetchInstagramSuccess(searchResult: searchResu
 completion(.failure(InstagramDetailsConverterError.noResponse))
 return
 }
-print(pictures)
 self?.detailsPictures.append(pictures)
 completion(.success(pictures))
 
@@ -53,10 +61,11 @@ completion(.failure(error))
 }
 }
 
-func collectIDPictures() {
+func collectIDPictures(completion: @escaping() -> Void) {
 instagramIDConverter.convertIDPictures() { [weak self] result in
 switch result {
 case .success(let result):
+print("did collect ?")
 self?.didCollectIDPictures(idPictures: result)
 case .failure(let error):
 print(error)
@@ -64,17 +73,22 @@ print(error)
 }
 }
 
-func collectDetailsPictures() {
-collectIDPictures()
-for idPicture in idPictures {
-  convert(idPicture: idPicture) { [weak self] result in
-    switch result {
-    case .success(let result):
-      self?.detailsPictures.append(result)
-    case .failure(let error):
-    print(error)
+func collectDetailsPictures(completion: @escaping () -> Void) {
+collectIDPictures() { [weak self] in
+  guard self?.idPictures.count > 0 else {
+    return
   }
-}
+  for idPicture in self.idPictures {
+    self?.convert(idPicture: idPicture) { [weak self] result in
+  switch result {
+  case .success(let result):
+    print("detail append")
+  self?.detailsPictures.append(result)
+  case .failure(let error):
+  print(error)
+  }
+  }
+  }
 }
 }
 
@@ -84,7 +98,6 @@ for idPicture in idPictures {
 private func convertFetchInstagramSuccess(searchResult: DetailsPictures) -> DetailsPictures? {
 let detailsPicture = searchResult
 guard detailsPicture != nil else { return nil }
-print(detailsPicture.mediaURL)
 return detailsPicture
 }
 

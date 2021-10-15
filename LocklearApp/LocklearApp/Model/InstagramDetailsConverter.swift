@@ -61,7 +61,7 @@ completion(.failure(error))
 }
 }
 
-func collectIDPictures(completion: @escaping() -> Void) {
+  func collectIDPictures() {//(completion: @escaping() -> Void) {
 instagramIDConverter.convertIDPictures() { [weak self] result in
 switch result {
 case .success(let result):
@@ -74,12 +74,9 @@ print(error)
 }
 
 func collectDetailsPictures(completion: @escaping () -> Void) {
-collectIDPictures() { [weak self] in
-  guard self?.idPictures.count > 0 else {
-    return
-  }
+collectIDPictures()
   for idPicture in self.idPictures {
-    self?.convert(idPicture: idPicture) { [weak self] result in
+    convert(idPicture: idPicture) { [weak self] result in
   switch result {
   case .success(let result):
     print("detail append")
@@ -90,7 +87,7 @@ collectIDPictures() { [weak self] in
   }
   }
 }
-}
+
 
 /// this function is call when "convert" is success, use the delegate for send error at user,
 /// or for send the array of id pictures

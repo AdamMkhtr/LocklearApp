@@ -58,7 +58,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thJ-C6-Q1T">
                                     <rect key="frame" x="0.0" y="98.5" width="354" height="83.5"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deezer" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-4C-ioV">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deezer" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-4C-ioV">
                                             <rect key="frame" x="0.0" y="0.0" width="83.5" height="83.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="wzh-4C-ioV" secondAttribute="height" multiplier="1:1" id="8Xh-be-dTL"/>
@@ -85,7 +85,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDf-tf-C6a">
                                     <rect key="frame" x="0.0" y="197" width="354" height="83.5"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spotify" translatesAutoresizingMaskIntoConstraints="NO" id="rHJ-uz-LEU">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spotify" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHJ-uz-LEU">
                                             <rect key="frame" x="0.0" y="0.0" width="83.5" height="83.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="rHJ-uz-LEU" secondAttribute="height" multiplier="1:1" id="jiU-9t-Wpv"/>
@@ -112,9 +112,9 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNO-Cc-VmI">
                                     <rect key="frame" x="0.0" y="295.5" width="354" height="84"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtube" translatesAutoresizingMaskIntoConstraints="NO" id="FhC-wR-unI">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" image="youtube" translatesAutoresizingMaskIntoConstraints="NO" id="FhC-wR-unI">
                                             <rect key="frame" x="0.0" y="0.0" width="83.5" height="84"/>
-                                            <color key="backgroundColor" red="0.1764705882" green="0.56078431370000004" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.21176470589999999" green="0.28235294119999998" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="FhC-wR-unI" secondAttribute="height" multiplier="1:1" id="xVk-Ra-0Ci"/>
                                             </constraints>

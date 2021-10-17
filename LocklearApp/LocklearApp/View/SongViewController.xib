@@ -10,7 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SongViewController" customModule="LocklearApp" customModuleProvider="target">
             <connections>
+                <outlet property="deezerView" destination="thJ-C6-Q1T" id="t1W-Vr-aBw"/>
+                <outlet property="spotifyView" destination="KDf-tf-C6a" id="Bos-nQ-gFb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="youtubeView" destination="dNO-Cc-VmI" id="Wwg-8S-c8d"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

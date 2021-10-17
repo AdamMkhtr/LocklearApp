@@ -53,26 +53,31 @@ override func viewDidLoad() {
   }
 
   func setupYoutube() {
+    youtubeView.clipsToBounds = true
     youtubeView.layer.cornerRadius = 8
     youtubeView.layer.borderWidth = 0.5
   }
 
   func setupTwitch() {
+    twitchView.clipsToBounds = true
     twitchView.layer.cornerRadius = 8
     twitchView.layer.borderWidth = 0.5
   }
 
   func setupTwitter() {
+    twitterView.clipsToBounds = true
     twitterView.layer.cornerRadius = 8
     twitterView.layer.borderWidth = 0.5
   }
 
   func setupInstagram() {
+    instagramView.clipsToBounds = true
     instagramView.layer.cornerRadius = 8
     instagramView.layer.borderWidth = 0.5
   }
 
   func setupDiscord() {
+    discordView.clipsToBounds = true
     discordView.layer.cornerRadius = 8
     discordView.layer.borderWidth = 0.5
   }

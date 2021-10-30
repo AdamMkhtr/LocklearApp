@@ -68,7 +68,7 @@
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
         </view>
-        <tapGestureRecognizer id="Wro-SB-tKb">
+        <tapGestureRecognizer cancelsTouchesInView="NO" id="Wro-SB-tKb">
             <connections>
                 <action selector="dismissMenu:" destination="-1" id="HVH-fM-8WZ"/>
             </connections>

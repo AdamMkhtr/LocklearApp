@@ -10,41 +10,41 @@ import UIKit
 class InstagramViewController: UIViewController {
 
 
-//----------------------------------------------------------------------------
-// MARK: - Properties
-//----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  // MARK: - Properties
+  //----------------------------------------------------------------------------
 
-var instagramDetailsConverter = InstagramDetailsConverter()
+  var instagramDetailsConverter = InstagramDetailsConverter()
 
-//----------------------------------------------------------------------------
-// MARK: - Outlets
-//----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  // MARK: - Outlets
+  //----------------------------------------------------------------------------
 
-@IBOutlet weak var instagramTableView: UITableView!
+  @IBOutlet weak var instagramTableView: UITableView!
 
-//----------------------------------------------------------------------------
-// MARK: - Init
-//----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  // MARK: - Init
+  //----------------------------------------------------------------------------
 
-override func viewDidLoad() {
-super.viewDidLoad()
-self.instagramTableView.register(UINib(nibName: "InstagramTableViewCell", bundle: nil), forCellReuseIdentifier: "InstagramCell")
-  lauchRequest()
-}
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.instagramTableView.register(UINib(nibName: "InstagramTableViewCell", bundle: nil), forCellReuseIdentifier: "InstagramCell")
+    lauchRequest()
+    instagramTableView.delegate = self
+    instagramTableView.dataSource = self
+    instagramTableView.allowsSelection = true
+  }
 
-//----------------------------------------------------------------------------
-// MARK: - Methods
-//----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  // MARK: - Methods
+  //----------------------------------------------------------------------------
 
-func lauchRequest() {
-  print("lauch request")
-    instagramDetailsConverter.collectDetailsPictures() { [weak self]  in
-      print("reload")
+  func lauchRequest() {
+    instagramDetailsConverter.collectDetailsPictures() { [weak self] result in
       self?.instagramTableView.reloadData()
       
     }
-  print("fin de l'action")
-}
+  }
 
 }
 //----------------------------------------------------------------------------
@@ -52,23 +52,49 @@ func lauchRequest() {
 //----------------------------------------------------------------------------
 
 extension InstagramViewController: UITableViewDataSource {
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-guard let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramCell", for: indexPath) as? InstagramTableViewCell else {
-print("Error create Cell")
-return UITableViewCell()
-}
-let pictureDetail = instagramDetailsConverter.detailsPictures[indexPath.row]
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramCell", for: indexPath) as? InstagramTableViewCell else {
+      print("Error create Cell")
+      return UITableViewCell()
+    }
+    let pictureDetail = instagramDetailsConverter.detailsPictures[indexPath.row]
 
-cell.configure(urlMedia: pictureDetail.mediaURL, caption: pictureDetail.caption ?? "")
+    cell.configure(urlMedia: pictureDetail.mediaURL, caption: pictureDetail.caption ?? "")
 
-return cell
+    return cell
+  }
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return instagramDetailsConverter.detailsPictures.count
+  }
 }
 
-func numberOfSections(in tableView: UITableView) -> Int {
-return 1
-}
+//----------------------------------------------------------------------------
+// MARK: - Extension UITableViewDelegate
+//----------------------------------------------------------------------------
 
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-return instagramDetailsConverter.detailsPictures.count
-}
+extension InstagramViewController: UITableViewDelegate {
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("ça passe ici ?")
+    guard let indexPathInstagram = instagramTableView.indexPathForSelectedRow?.row else {
+      print("error index path Favorite table view")
+      return
+    }
+    let selectedPicture = instagramDetailsConverter.detailsPictures[indexPathInstagram]
+
+    guard let url = URL(string: selectedPicture.permalink) else {
+      print("error URL")
+      return
+    }
+    UIApplication.shared.open(url)
+    print("ici")
+
+  }
+
+
 }

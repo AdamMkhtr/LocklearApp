@@ -46,45 +46,40 @@ return false
 /// - Parameter idPicture: recup the id picture for API
 func convert(idPicture : String, completion: @escaping ((Result<DetailsPictures, Error>) -> Void)) {
 instagramProvider.fetchDetailsPictures(idPicture : idPicture) { [weak self] result in
-switch result {
-case .success(let searchResult):
-guard let pictures = self?.convertFetchInstagramSuccess(searchResult: searchResult) else {
-completion(.failure(InstagramDetailsConverterError.noResponse))
-return
-}
-self?.detailsPictures.append(pictures)
-completion(.success(pictures))
-
-case .failure(let error):
-completion(.failure(error))
-}
-}
-}
-
-  func collectIDPictures() {//(completion: @escaping() -> Void) {
-instagramIDConverter.convertIDPictures() { [weak self] result in
-switch result {
-case .success(let result):
-print("did collect ?")
-self?.didCollectIDPictures(idPictures: result)
-case .failure(let error):
-print(error)
-}
-}
-}
-
-func collectDetailsPictures(completion: @escaping () -> Void) {
-collectIDPictures()
-  for idPicture in self.idPictures {
-    convert(idPicture: idPicture) { [weak self] result in
   switch result {
-  case .success(let result):
-    print("detail append")
-  self?.detailsPictures.append(result)
+  case .success(let searchResult):
+    guard let pictures = self?.convertFetchInstagramSuccess(searchResult: searchResult) else {
+      completion(.failure(InstagramDetailsConverterError.noResponse))
+      return
+    }
+    self?.detailsPictures.append(pictures)
+    completion(.success(pictures))
+
   case .failure(let error):
-  print(error)
+    completion(.failure(error))
   }
+}
+}
+
+  func collectIDPictures(completion: @escaping ((Result<[String], Error>)) -> Void) {
+instagramIDConverter.convertIDPictures() {  result in
+  completion(result)
   }
+}
+
+
+func collectDetailsPictures(completion: @escaping ((Result<DetailsPictures, Error>)) -> Void) {
+  collectIDPictures { [weak self] result in
+    switch result {
+    case .success(let ids):
+      for id in ids {
+        self?.convert(idPicture: id) { result in
+          completion(result)
+        }
+      }
+    case .failure(let error):
+      completion(.failure(error))
+    }
   }
 }
 

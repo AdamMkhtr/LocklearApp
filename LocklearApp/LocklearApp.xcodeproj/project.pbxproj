@@ -28,6 +28,8 @@
 		A69188DF26FDEA6E00EB9B4E /* SongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188DD26FDEA6E00EB9B4E /* SongViewController.xib */; };
 		A69188E226FDEA9C00EB9B4E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69188E026FDEA9C00EB9B4E /* VideoViewController.swift */; };
 		A69188E326FDEA9C00EB9B4E /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69188E126FDEA9C00EB9B4E /* VideoViewController.xib */; };
+		A6AFA8CA272DA0ED00794299 /* YoutubeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AFA8C9272DA0ED00794299 /* YoutubeProvider.swift */; };
+		A6AFA8CC272DA10100794299 /* YoutubeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AFA8CB272DA10100794299 /* YoutubeConverter.swift */; };
 		A6B711A026F0F4E8004BF549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7119F26F0F4E8004BF549 /* AppDelegate.swift */; };
 		A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */; };
 		A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B711A826F0F4E8004BF549 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		A69188DD26FDEA6E00EB9B4E /* SongViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongViewController.xib; sourceTree = "<group>"; };
 		A69188E026FDEA9C00EB9B4E /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		A69188E126FDEA9C00EB9B4E /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		A6AFA8C9272DA0ED00794299 /* YoutubeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeProvider.swift; sourceTree = "<group>"; };
+		A6AFA8CB272DA10100794299 /* YoutubeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeConverter.swift; sourceTree = "<group>"; };
 		A6B7119C26F0F4E8004BF549 /* LocklearApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocklearApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B7119F26F0F4E8004BF549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				A6849B65270AFDC8000D3F99 /* InstagramDetailsProvider.swift */,
 				A6849B67270AFDD7000D3F99 /* InstagramDetailsConverter.swift */,
 				A638B7FD2710DCDB00203232 /* InstagramDelegateProtocol.swift */,
+				A6AFA8C9272DA0ED00794299 /* YoutubeProvider.swift */,
+				A6AFA8CB272DA10100794299 /* YoutubeConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,7 +334,9 @@
 				A638B7FE2710DCDB00203232 /* InstagramDelegateProtocol.swift in Sources */,
 				A6B711C126F10A64004BF549 /* HomeViewController.swift in Sources */,
 				A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */,
+				A6AFA8CC272DA10100794299 /* YoutubeConverter.swift in Sources */,
 				A6B711A026F0F4E8004BF549 /* AppDelegate.swift in Sources */,
+				A6AFA8CA272DA0ED00794299 /* YoutubeProvider.swift in Sources */,
 				A6849B5E270A111F000D3F99 /* InstagramIDPicturesProvider.swift in Sources */,
 				A6849B68270AFDD7000D3F99 /* InstagramDetailsConverter.swift in Sources */,
 				A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */,

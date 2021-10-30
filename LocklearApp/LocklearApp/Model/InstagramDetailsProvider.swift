@@ -46,7 +46,7 @@ idPicture : String,
 completion: @escaping ((Result<DetailsPictures, Error>) -> Void)
 ) {
 let queryParameters: [String: Any] = [
-  "fields": "id,media_url,caption",
+  "fields": "id,media_url,caption,permalink",
   "access_token": apiKey,
 ]
 let request = AF.request(url + idPicture, parameters: queryParameters)

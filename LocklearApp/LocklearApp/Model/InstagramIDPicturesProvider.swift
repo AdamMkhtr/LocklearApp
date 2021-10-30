@@ -10,6 +10,10 @@ import Alamofire
 
 class InstagramIDPicturesProvider {
 
+  //----------------------------------------------------------------------------
+  // MARK: - Error Management
+  //----------------------------------------------------------------------------
+
 enum InstagramIDPicturesProviderError: LocalizedError {
   case errorResponse
 
@@ -36,7 +40,7 @@ init(apiKey: String = APIKeys.instagramAPIKey) {
 // MARK: - Methods
 //----------------------------------------------------------------------------
 
-/// Call the API edaman for collect data
+/// Call the API Instagram for collect data
 /// - Parameters:
 ///   - querry: ingredients for API call
 ///   - completion: completion return id picture

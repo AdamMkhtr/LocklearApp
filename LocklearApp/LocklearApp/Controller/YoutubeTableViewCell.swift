@@ -1,28 +1,28 @@
-  //
-  //  InstagramTableViewCell.swift
-  //  LocklearApp
-  //
-  //  Created by Adam Mokhtar on 03/10/2021.
-  //
+//
+//  YoutubeTableViewCell.swift
+//  LocklearApp
+//
+//  Created by Adam Mokhtar on 30/10/2021.
+//
 
-  import UIKit
+import UIKit
 
-  class InstagramTableViewCell: UITableViewCell {
+class YoutubeTableViewCell: UITableViewCell {
 
   //----------------------------------------------------------------------------
   // MARK: - Properties
   //----------------------------------------------------------------------------
 
-  @IBOutlet weak var pictureImageView: UIImageView!
-  @IBOutlet weak var captionPictureLabel: UILabel!
+  @IBOutlet weak var youtubeImageView: UIImageView!
+  @IBOutlet weak var youtubeLabel: UILabel!
 
   //----------------------------------------------------------------------------
   // MARK: - Init
   //----------------------------------------------------------------------------
 
   override func awakeFromNib() {
-    super.awakeFromNib()
-  //    contentView.isUserInteractionEnabled = true
+      super.awakeFromNib()
+      // Initialization code
   }
 
   //----------------------------------------------------------------------------
@@ -31,12 +31,13 @@
 
   override func setSelected(_ selected: Bool, animated: Bool) {
       super.setSelected(selected, animated: animated)
+
+      // Configure the view for the selected state
   }
 
   func configure(urlMedia: String, caption: String) {
-    pictureImageView.load(link: urlMedia)
-    captionPictureLabel.text = caption
+    youtubeImageView.load(link: urlMedia)
+    youtubeLabel.text = caption
   //  contentView.isUserInteractionEnabled = true
   }
-
-  }
+}

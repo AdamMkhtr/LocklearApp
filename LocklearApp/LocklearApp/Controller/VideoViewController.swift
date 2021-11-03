@@ -55,13 +55,13 @@ func lauchRequest() {
 
 extension VideoViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramCell", for: indexPath) as? InstagramTableViewCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell", for: indexPath) as? YoutubeTableViewCell else {
       print("Error create Cell")
       return UITableViewCell()
     }
     let videoDetail = youtubeConverter.videoDetails[indexPath.row]
 
-    cell.configure(urlMedia: videoDetail.snippet.title, caption: videoDetail.snippet.thumbnails.thumbnailsDefault.url)
+    cell.configure(urlMedia: videoDetail.snippet.thumbnails.high.url, caption: videoDetail.snippet.title)
 
     return cell
   }

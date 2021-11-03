@@ -5,6 +5,11 @@
 //  Created by Adam Mokhtar on 30/10/2021.
 //
 
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let youtubeCodable = try? newJSONDecoder().decode(YoutubeCodable.self, from: jsonData)
+
 import Foundation
 
 // MARK: - YoutubeCodable
@@ -43,20 +48,20 @@ enum ItemKind: String, Codable {
 
 // MARK: - Snippet
 struct Snippet: Codable {
-    let publishedAt: Date
+//    let publishedAt: Date
     let channelID: ChannelID
     let title, snippetDescription: String
     let thumbnails: Thumbnails
     let channelTitle: ChannelTitle
     let liveBroadcastContent: LiveBroadcastContent
-    let publishTime: Date
+//    let publishTime: Date
 
     enum CodingKeys: String, CodingKey {
-        case publishedAt
+  //      case publishedAt
         case channelID = "channelId"
         case title
         case snippetDescription = "description"
-        case thumbnails, channelTitle, liveBroadcastContent, publishTime
+        case thumbnails, channelTitle, liveBroadcastContent//, publishTime
     }
 }
 

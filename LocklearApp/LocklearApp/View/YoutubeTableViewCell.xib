@@ -10,35 +10,36 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="YoutubeCell" rowHeight="308" id="KGk-i7-Jjw" customClass="YoutubeTableViewCell" customModule="LocklearApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="386" height="308"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="YoutubeCell" rowHeight="298" id="KGk-i7-Jjw" customClass="YoutubeTableViewCell" customModule="LocklearApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="298"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="386" height="308"/>
+                <rect key="frame" x="0.0" y="0.0" width="362" height="298"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-na-IKz">
-                        <rect key="frame" x="0.0" y="0.0" width="386" height="276"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-na-IKz">
+                        <rect key="frame" x="0.0" y="0.0" width="362" height="226.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="g7c-na-IKz" secondAttribute="height" multiplier="193:138" id="yYN-zH-8bH"/>
+                            <constraint firstAttribute="width" secondItem="g7c-na-IKz" secondAttribute="height" multiplier="8:5" id="dEr-26-NwU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASG-Rk-b7G">
-                        <rect key="frame" x="20" y="276" width="346" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASG-Rk-b7G">
+                        <rect key="frame" x="0.0" y="226.5" width="362" height="71.5"/>
+                        <color key="backgroundColor" red="0.13354340200000001" green="0.16002377870000001" blue="0.2078499198" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.082467220719999998" green="0.097605608400000002" blue="0.1254942715" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" red="0.078560881319999998" green="0.10159236939999999" blue="0.1254939437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="ASG-Rk-b7G" secondAttribute="bottom" id="74n-xb-uUE"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ASG-Rk-b7G" secondAttribute="trailing" id="N9l-36-O8v"/>
-                    <constraint firstItem="ASG-Rk-b7G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="PRh-eN-GuO"/>
-                    <constraint firstItem="ASG-Rk-b7G" firstAttribute="top" secondItem="g7c-na-IKz" secondAttribute="bottom" id="cxZ-ma-tcg"/>
-                    <constraint firstItem="g7c-na-IKz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dTe-TM-FUc"/>
-                    <constraint firstItem="g7c-na-IKz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hVT-SQ-oyE"/>
-                    <constraint firstAttribute="trailing" secondItem="g7c-na-IKz" secondAttribute="trailing" id="nlc-JH-cN9"/>
+                    <constraint firstItem="g7c-na-IKz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6I2-3t-OIB"/>
+                    <constraint firstAttribute="trailing" secondItem="ASG-Rk-b7G" secondAttribute="trailing" id="6iS-lR-7K6"/>
+                    <constraint firstAttribute="trailing" secondItem="g7c-na-IKz" secondAttribute="trailing" id="ARj-gT-qpf"/>
+                    <constraint firstAttribute="bottom" secondItem="ASG-Rk-b7G" secondAttribute="bottom" id="Cnk-NG-bsL"/>
+                    <constraint firstItem="g7c-na-IKz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KiK-K6-RYf"/>
+                    <constraint firstItem="ASG-Rk-b7G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SwL-zu-J7f"/>
+                    <constraint firstItem="ASG-Rk-b7G" firstAttribute="top" secondItem="g7c-na-IKz" secondAttribute="bottom" id="mzB-Jb-uUG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -46,7 +47,7 @@
                 <outlet property="youtubeImageView" destination="g7c-na-IKz" id="cSR-bR-c9c"/>
                 <outlet property="youtubeLabel" destination="ASG-Rk-b7G" id="EPe-C4-AUr"/>
             </connections>
-            <point key="canvasLocation" x="84.057971014492765" y="200.89285714285714"/>
+            <point key="canvasLocation" x="262.31884057971018" y="113.83928571428571"/>
         </tableViewCell>
     </objects>
 </document>

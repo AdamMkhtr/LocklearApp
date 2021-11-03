@@ -51,6 +51,7 @@ class YoutubeConverter {
   /// - Parameter searchResult: collect the array of this class for work with
   private func convertFetchYoutubeSuccess(searchResult: YoutubeCodable) -> [Item]? {
     let videos = searchResult.items
+    print("\(videos.count)" + " ICI")
     guard videos.count > 0 else { return nil }
     return videos
   }

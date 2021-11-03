@@ -20,7 +20,7 @@ struct InstagramIDPictures: Codable {
 // MARK: - Media
 struct Media: Codable {
   let data: [Datum]
-  let paging: Paging
+  let paging: Paging 
 }
 
 // MARK: - Datum

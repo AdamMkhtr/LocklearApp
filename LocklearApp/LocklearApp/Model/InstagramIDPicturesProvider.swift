@@ -63,6 +63,7 @@ func fetchIDPictures(
       let instagramJSON = try JSONDecoder().decode(InstagramIDPictures.self, from: data)
       completion(.success(instagramJSON))
     } catch {
+      print(String(describing: error))
       print(error.localizedDescription)
       completion(.failure(error))
     }

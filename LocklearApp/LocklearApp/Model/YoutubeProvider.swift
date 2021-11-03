@@ -51,7 +51,7 @@ class YoutubeProvider {
       "part": "snippet",
       "channelId": "UCvuACILbubOXV_OMBWqLM2g",
       "maxResults": "10",
-      "key": apiKey,
+      "key": apiKey
     ]
     let request = AF.request(url, parameters: queryParameters)
 
@@ -60,12 +60,16 @@ class YoutubeProvider {
         completion(.failure(YoutubeProviderError.errorResponse))
         return
       }
-
+      print(data)
+      print(request.response?.statusCode)
       do {
         let youtubeJSON = try JSONDecoder().decode(YoutubeCodable.self, from: data)
+        print(youtubeJSON)
         completion(.success(youtubeJSON))
       } catch {
-        print(error.localizedDescription)
+        print(error)
+//        print(error.localizedDescription)
+  //      print(String(describing: error))
         completion(.failure(error))
       }
     }

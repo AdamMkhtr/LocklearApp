@@ -18,15 +18,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Légende de la photo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K4-PQ-DO8">
-                        <rect key="frame" x="0.0" y="292.5" width="340" height="133.5"/>
+                        <rect key="frame" x="0.0" y="309" width="340" height="101"/>
                         <color key="backgroundColor" red="0.13354122639999999" green="0.16002246740000001" blue="0.20785000919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
-                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tg4-lz-tBO">
-                        <rect key="frame" x="20" y="20" width="300" height="272.5"/>
+                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tg4-lz-tBO">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="309"/>
                         <color key="backgroundColor" red="0.07869828492" green="0.098183073100000004" blue="0.1287542284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="tg4-lz-tBO" secondAttribute="height" multiplier="11:10" id="AxP-dH-JFp"/>
@@ -36,13 +36,13 @@
                 <color key="backgroundColor" red="0.082467220719999998" green="0.097605608400000002" blue="0.1254942715" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <color key="tintColor" red="0.082467220719999998" green="0.097605608400000002" blue="0.1254942715" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstItem="tg4-lz-tBO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="0mV-np-ijb"/>
+                    <constraint firstItem="tg4-lz-tBO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0mV-np-ijb"/>
                     <constraint firstAttribute="trailing" secondItem="4K4-PQ-DO8" secondAttribute="trailing" id="Gfn-kX-NZR"/>
                     <constraint firstItem="4K4-PQ-DO8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Lya-4z-wjJ"/>
                     <constraint firstItem="4K4-PQ-DO8" firstAttribute="top" secondItem="tg4-lz-tBO" secondAttribute="bottom" id="Nfg-9x-8vi"/>
-                    <constraint firstAttribute="trailing" secondItem="tg4-lz-tBO" secondAttribute="trailing" constant="20" id="Uoi-jl-feb"/>
-                    <constraint firstItem="tg4-lz-tBO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="XFg-Nf-w8X"/>
-                    <constraint firstAttribute="bottom" secondItem="4K4-PQ-DO8" secondAttribute="bottom" id="xS4-5j-Qeg"/>
+                    <constraint firstAttribute="trailing" secondItem="tg4-lz-tBO" secondAttribute="trailing" id="Uoi-jl-feb"/>
+                    <constraint firstItem="tg4-lz-tBO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XFg-Nf-w8X"/>
+                    <constraint firstAttribute="bottom" secondItem="4K4-PQ-DO8" secondAttribute="bottom" constant="16" id="xS4-5j-Qeg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

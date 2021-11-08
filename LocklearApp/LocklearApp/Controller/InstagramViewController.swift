@@ -80,7 +80,6 @@ extension InstagramViewController: UITableViewDataSource {
 extension InstagramViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("ça passe ici ?")
     guard let indexPathInstagram = instagramTableView.indexPathForSelectedRow?.row else {
       print("error index path Favorite table view")
       return
@@ -92,7 +91,6 @@ extension InstagramViewController: UITableViewDelegate {
       return
     }
     UIApplication.shared.open(url)
-    print("ici")
 
   }
 

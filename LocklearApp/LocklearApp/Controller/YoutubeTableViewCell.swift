@@ -15,14 +15,22 @@ class YoutubeTableViewCell: UITableViewCell {
 
   @IBOutlet weak var youtubeImageView: UIImageView!
   @IBOutlet weak var youtubeLabel: UILabel!
+  @IBOutlet weak var contentVIew: UIView!
 
   //----------------------------------------------------------------------------
   // MARK: - Init
   //----------------------------------------------------------------------------
 
   override func awakeFromNib() {
-      super.awakeFromNib()
-      // Initialization code
+    super.awakeFromNib()
+    setupCornerRadius()
+  }
+
+  func setupCornerRadius() {
+    contentVIew.clipsToBounds = true
+    contentVIew.layer.cornerRadius = 3
+    contentVIew.layer.borderWidth = 0.2
+
   }
 
   //----------------------------------------------------------------------------
@@ -30,14 +38,18 @@ class YoutubeTableViewCell: UITableViewCell {
   //----------------------------------------------------------------------------
 
   override func setSelected(_ selected: Bool, animated: Bool) {
-      super.setSelected(selected, animated: animated)
+    super.setSelected(selected, animated: animated)
+  }
 
-      // Configure the view for the selected state
+  override func layoutSubviews() {
+    super.layoutSubviews()
   }
 
   func configure(urlMedia: String, caption: String) {
     youtubeImageView.load(link: urlMedia)
     youtubeLabel.text = caption
-  //  contentView.isUserInteractionEnabled = true
   }
+
+
+
 }

@@ -29,11 +29,13 @@ class VideoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("ça commence youtube")
-    self.youtubeTableView.register(UINib(nibName: "YoutubeTableViewCell", bundle: nil), forCellReuseIdentifier: "YoutubeCell")
+    youtubeTableView.register(UINib(nibName: "YoutubeTableViewCell", bundle: nil), forCellReuseIdentifier: "YoutubeCell")
+    youtubeTableView.register(UINib(nibName: "YoutubeHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "YoutubeHeaderView")
     lauchRequest()
     youtubeTableView.delegate = self
     youtubeTableView.dataSource = self
     youtubeTableView.allowsSelection = true
+
   }
 
   //----------------------------------------------------------------------------
@@ -73,6 +75,18 @@ extension VideoViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return youtubeConverter.videoDetails.count
   }
+
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "YoutubeHeaderView") as? YoutubeHeaderView else {
+      return UITableViewHeaderFooterView()
+    }
+    return headerView
+  }
+
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 60
+  }
+
 }
 
 //----------------------------------------------------------------------------
@@ -95,7 +109,6 @@ extension VideoViewController: UITableViewDelegate {
       return
     }
     UIApplication.shared.open(url)
-    print("ici")
 
   }
 

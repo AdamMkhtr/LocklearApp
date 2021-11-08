@@ -22,7 +22,6 @@
 
   override func awakeFromNib() {
     super.awakeFromNib()
-  //    contentView.isUserInteractionEnabled = true
   }
 
   //----------------------------------------------------------------------------
@@ -36,7 +35,6 @@
   func configure(urlMedia: String, caption: String) {
     pictureImageView.load(link: urlMedia)
     captionPictureLabel.text = caption
-  //  contentView.isUserInteractionEnabled = true
   }
 
   }

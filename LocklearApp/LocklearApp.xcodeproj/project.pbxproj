@@ -33,6 +33,8 @@
 		A6AFA8CE272DA29000794299 /* YoutubeCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AFA8CD272DA29000794299 /* YoutubeCodable.swift */; };
 		A6AFA8D1272DABA600794299 /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AFA8CF272DABA600794299 /* YoutubeTableViewCell.swift */; };
 		A6AFA8D2272DABA600794299 /* YoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AFA8D0272DABA600794299 /* YoutubeTableViewCell.xib */; };
+		A6B2A6D827341D86000988B2 /* YoutubeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2A6D727341D86000988B2 /* YoutubeHeaderView.swift */; };
+		A6B2A6DA27341DB5000988B2 /* YoutubeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2A6D927341DB5000988B2 /* YoutubeHeaderView.xib */; };
 		A6B711A026F0F4E8004BF549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7119F26F0F4E8004BF549 /* AppDelegate.swift */; };
 		A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */; };
 		A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B711A826F0F4E8004BF549 /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		A6AFA8CD272DA29000794299 /* YoutubeCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeCodable.swift; sourceTree = "<group>"; };
 		A6AFA8CF272DABA600794299 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		A6AFA8D0272DABA600794299 /* YoutubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeTableViewCell.xib; sourceTree = "<group>"; };
+		A6B2A6D727341D86000988B2 /* YoutubeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeHeaderView.swift; sourceTree = "<group>"; };
+		A6B2A6D927341DB5000988B2 /* YoutubeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeHeaderView.xib; sourceTree = "<group>"; };
 		A6B7119C26F0F4E8004BF549 /* LocklearApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocklearApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B7119F26F0F4E8004BF549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				A6B711AA26F0F4E8004BF549 /* LaunchScreen.storyboard */,
 				A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */,
 				A6AFA8D0272DABA600794299 /* YoutubeTableViewCell.xib */,
+				A6B2A6D927341DB5000988B2 /* YoutubeHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				A69188E026FDEA9C00EB9B4E /* VideoViewController.swift */,
 				A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */,
 				A6AFA8CF272DABA600794299 /* YoutubeTableViewCell.swift */,
+				A6B2A6D727341D86000988B2 /* YoutubeHeaderView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				A6B711AC26F0F4E8004BF549 /* LaunchScreen.storyboard in Resources */,
 				A69188DB26FDEA4B00EB9B4E /* InstagramViewController.xib in Resources */,
 				A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */,
+				A6B2A6DA27341DB5000988B2 /* YoutubeHeaderView.xib in Resources */,
 				A6B711C226F10A64004BF549 /* HomeViewController.xib in Resources */,
 				A69188D326FB6A6400EB9B4E /* NotificationSideMenuViewController.xib in Resources */,
 				A69188D726FDEA3600EB9B4E /* StreamViewController.xib in Resources */,
@@ -360,6 +367,7 @@
 				A69188DE26FDEA6E00EB9B4E /* SongViewController.swift in Sources */,
 				A6B711BD26F10A43004BF549 /* MenuViewController.swift in Sources */,
 				A6AFA8CE272DA29000794299 /* YoutubeCodable.swift in Sources */,
+				A6B2A6D827341D86000988B2 /* YoutubeHeaderView.swift in Sources */,
 				A69188E226FDEA9C00EB9B4E /* VideoViewController.swift in Sources */,
 				A6849B64270A2682000D3F99 /* APIKeys.swift in Sources */,
 				A6AFA8D1272DABA600794299 /* YoutubeTableViewCell.swift in Sources */,

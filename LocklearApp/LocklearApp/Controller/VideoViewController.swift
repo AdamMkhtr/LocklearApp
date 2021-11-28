@@ -5,6 +5,8 @@
 //  Created by Adam Mokhtar on 24/09/2021.
 //
 
+
+
 import UIKit
 
 class VideoViewController: UIViewController {
@@ -15,6 +17,10 @@ class VideoViewController: UIViewController {
   //----------------------------------------------------------------------------
 
   var youtubeConverter = YoutubeConverter()
+  var youtubeVODConverter = YoutubeVODConverter()
+  var youtubeShortConverter = YoutubeShortConverter()
+
+  var youtubeChannel: YoutubeChanel = .principale
 
   //----------------------------------------------------------------------------
   // MARK: - Outlets
@@ -28,26 +34,113 @@ class VideoViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("ça commence youtube")
     youtubeTableView.register(UINib(nibName: "YoutubeTableViewCell", bundle: nil), forCellReuseIdentifier: "YoutubeCell")
     youtubeTableView.register(UINib(nibName: "YoutubeHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "YoutubeHeaderView")
-    lauchRequest()
+
     youtubeTableView.delegate = self
     youtubeTableView.dataSource = self
     youtubeTableView.allowsSelection = true
 
+
+    //activityIndicator.start()
+    lauchRequest()
   }
 
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
-func lauchRequest() {
-  youtubeConverter.convert() { [weak self] result in
-    self?.youtubeTableView.reloadData()
+  func lauchRequest() {
+
+    youtubeConverter.convert(pageToken: "") { [weak self] result in
+      self?.youtubeTableView.reloadData()
+    }
+  }
+
+  func whatChannelDetails() -> [Item] {
+    var videoDetail = youtubeConverter.videoDetails
+
+    switch youtubeChannel {
+    case .principale:
+      videoDetail = youtubeConverter.videoDetails
+      print("principale")
+    case .VOD:
+      videoDetail = youtubeVODConverter.videoDetails
+      print("VOD")
+    case .short:
+      videoDetail = youtubeShortConverter.videoDetails
+      print("short")
+    }
+    return videoDetail
+  }
+
+  func whatChannelPageToken() -> String {
+    var token = youtubeConverter.pageToken
+
+    switch youtubeChannel {
+    case .principale:
+      token = youtubeConverter.pageToken
+    case .VOD:
+      token = youtubeVODConverter.pageToken
+    case .short:
+      token = youtubeShortConverter.pageToken
+    }
+    return token
+  }
+
+  func whatChannelPageTn(token: String)  {
+
+    switch youtubeChannel {
+    case .principale:
+      youtubeConverter.convert(pageToken: token) { [weak self] result in
+        self?.youtubeTableView.reloadData()
+      }
+    case .VOD:
+      youtubeVODConverter.convert(pageToken: token) { [weak self] result in
+        self?.youtubeTableView.reloadData()
+      }
+    case .short:
+      youtubeShortConverter.convert(pageToken: token) { [weak self] result in
+        self?.youtubeTableView.reloadData()
+      }
+    }
 
   }
 }
+extension VideoViewController: YoutubeHeaderDelegate {
+
+  func didLauchRequestPrincipale() {
+    youtubeChannel = .principale
+    guard youtubeConverter.videoDetails.isEmpty else {
+      youtubeTableView.reloadData()
+      return
+    }
+    youtubeConverter.convert(pageToken: "") { [weak self] result in
+      self?.youtubeTableView.reloadData()
+    }
+  }
+
+  func didLauchRequestShort() {
+    youtubeChannel = .short
+    guard youtubeShortConverter.videoDetails.isEmpty else {
+      youtubeTableView.reloadData()
+      return
+    }
+    youtubeShortConverter.convert(pageToken: "") { [weak self] result in
+      self?.youtubeTableView.reloadData()
+    }
+  }
+
+  func didLauchRequestVOD() {
+    youtubeChannel = .VOD
+    guard youtubeVODConverter.videoDetails.isEmpty else {
+      youtubeTableView.reloadData()
+      return
+    }
+    youtubeVODConverter.convert(pageToken: "") { [weak self] result in
+      self?.youtubeTableView.reloadData()
+    }
+  }
 
 }
 
@@ -61,9 +154,12 @@ extension VideoViewController: UITableViewDataSource {
       print("Error create Cell")
       return UITableViewCell()
     }
-    let videoDetail = youtubeConverter.videoDetails[indexPath.row]
 
-    cell.configure(urlMedia: videoDetail.snippet.thumbnails.high.url, caption: videoDetail.snippet.title)
+    let youtubeChannel = whatChannelDetails()
+
+    let details = youtubeChannel[indexPath.row]
+
+    cell.configure(urlMedia: details.snippet.thumbnails.high.url, caption: details.snippet.title)
 
     return cell
   }
@@ -73,13 +169,16 @@ extension VideoViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return youtubeConverter.videoDetails.count
+    let youtubeChannel = whatChannelDetails()
+    return youtubeChannel.count
   }
 
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "YoutubeHeaderView") as? YoutubeHeaderView else {
       return UITableViewHeaderFooterView()
     }
+
+    headerView.delegate = self
     return headerView
   }
 
@@ -87,8 +186,31 @@ extension VideoViewController: UITableViewDataSource {
     return 60
   }
 
-}
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
+    let channel = whatChannelDetails()
+
+    let token = whatChannelPageToken()
+
+    if indexPath.row + 1 == channel.count {
+
+      if youtubeChannel == .principale {
+        youtubeConverter.convert(pageToken: token) { [weak self] result in
+          self?.youtubeTableView.reloadData()
+        }
+      } else if youtubeChannel == .short {
+        youtubeShortConverter.convert(pageToken: token) { [weak self] result in
+          self?.youtubeTableView.reloadData()
+        }
+      } else if youtubeChannel == .VOD {
+        youtubeVODConverter.convert(pageToken: token) { [weak self] result in
+          print("recherche en cours")
+          self?.youtubeTableView.reloadData()
+        }
+      }
+    }
+  }
+}
 //----------------------------------------------------------------------------
 // MARK: - Extension UITableViewDelegate
 //----------------------------------------------------------------------------
@@ -100,7 +222,10 @@ extension VideoViewController: UITableViewDelegate {
       print("error index path Favorite table view")
       return
     }
-    let selectedPicture = youtubeConverter.videoDetails[indexPathYoutube]
+
+    let channel = whatChannelDetails()
+
+    let selectedPicture = channel[indexPathYoutube]
 
     let url = "https://www.youtube.com/watch?v=" + selectedPicture.id.videoID
 
@@ -113,4 +238,10 @@ extension VideoViewController: UITableViewDelegate {
   }
 
 
+}
+
+enum YoutubeChanel {
+  case principale
+  case VOD
+  case short
 }

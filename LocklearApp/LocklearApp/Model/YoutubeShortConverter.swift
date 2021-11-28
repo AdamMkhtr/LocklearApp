@@ -1,14 +1,14 @@
 //
-//  YoutubeConverter.swift
+//  YoutubeShortConverter.swift
 //  LocklearApp
 //
-//  Created by Adam Mokhtar on 30/10/2021.
+//  Created by Adam Mokhtar on 15/11/2021.
 //
 
 import Foundation
 
-class YoutubeConverter {
-  
+class YoutubeShortConverter {
+
   //----------------------------------------------------------------------------
   // MARK: - Error Management
   //----------------------------------------------------------------------------
@@ -21,8 +21,8 @@ class YoutubeConverter {
   // MARK: - Properties
   //----------------------------------------------------------------------------
 
-  let youtubeProvider = YoutubeProvider()
-  var videoDetails = [Item]()
+  let youtubeProvider = YoutubeShortProvider()
+  private(set) var videoDetails = [Item]()
   var pageToken = ""
 
   //----------------------------------------------------------------------------

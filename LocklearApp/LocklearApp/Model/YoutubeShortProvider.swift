@@ -1,14 +1,14 @@
 //
-//  YoutubeProvider.swift
+//  YoutubeShortProvider.swift
 //  LocklearApp
 //
-//  Created by Adam Mokhtar on 30/10/2021.
+//  Created by Adam Mokhtar on 15/11/2021.
 //
 
 import Foundation
 import Alamofire
 
-class YoutubeProvider {
+class YoutubeShortProvider {
 
   //----------------------------------------------------------------------------
   // MARK: - Error Management
@@ -35,7 +35,7 @@ class YoutubeProvider {
   init(apiKey: String = APIKeys.youtubeAPIKey) {
     self.apiKey = apiKey
   }
-  
+
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
@@ -50,7 +50,7 @@ class YoutubeProvider {
     let queryParameters: [String: Any] = [
       "order": "date",
       "part": "snippet",
-      "channelId": "UCvuACILbubOXV_OMBWqLM2g",
+      "channelId": "UC6I94iQq2Qu_sYcuvDqMxLA",
       "maxResults": "5",
       "pageToken": pageToken,
       "key": apiKey
@@ -62,11 +62,8 @@ class YoutubeProvider {
         completion(.failure(YoutubeProviderError.errorResponse))
         return
       }
-      print(response.response?.statusCode)
-      print(response.description)
       do {
         let youtubeJSON = try JSONDecoder().decode(YoutubeCodable.self, from: data)
-        print(youtubeJSON)
         completion(.success(youtubeJSON))
       } catch {
         print(error)

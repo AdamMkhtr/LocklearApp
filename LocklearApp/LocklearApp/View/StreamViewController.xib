@@ -5,12 +5,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StreamViewController" customModule="LocklearApp" customModuleProvider="target">
             <connections>
+                <outlet property="calendarCollectionView" destination="NGV-Qz-5gA" id="Pjf-Sh-9Z4"/>
                 <outlet property="timerLabel" destination="F11-fY-uaM" id="BIf-F7-XDu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -40,14 +40,14 @@
                         <constraint firstAttribute="width" secondItem="xe4-9p-kTJ" secondAttribute="height" multiplier="4:1" id="se7-p0-cRk"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j56-00-EgY">
-                    <rect key="frame" x="30" y="232.5" width="354" height="88.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j56-00-EgY">
+                    <rect key="frame" x="30" y="232.5" width="354" height="177"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPc-mG-d4P">
-                            <rect key="frame" x="0.0" y="0.0" width="354" height="40.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="354" height="84.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROGRAMME DE LA SEMAINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhN-Zz-xm5">
-                                    <rect key="frame" x="60.5" y="10" width="233" height="20.5"/>
+                                    <rect key="frame" x="60.5" y="32" width="233" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -60,9 +60,10 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-Qz-5gA">
-                            <rect key="frame" x="0.0" y="48.5" width="354" height="40"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Va-Ct-yYo">
+                            <rect key="frame" x="0.0" y="92.5" width="354" height="84.5"/>
+                            <color key="backgroundColor" red="0.082468740639999996" green="0.097606517370000007" blue="0.12549424170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.082468740639999996" green="0.097606517370000007" blue="0.12549424170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Mw-62-r6b">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -71,7 +72,7 @@
                         </collectionView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="j56-00-EgY" secondAttribute="height" multiplier="4:1" id="AKT-mO-xL8"/>
+                        <constraint firstAttribute="width" secondItem="j56-00-EgY" secondAttribute="height" multiplier="8:4" id="AKT-mO-xL8"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -94,9 +95,4 @@
             <point key="canvasLocation" x="103" y="20"/>
         </stackView>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

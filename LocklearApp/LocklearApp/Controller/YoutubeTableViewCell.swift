@@ -30,7 +30,6 @@ class YoutubeTableViewCell: UITableViewCell {
     contentVIew.clipsToBounds = true
     contentVIew.layer.cornerRadius = 3
     contentVIew.layer.borderWidth = 0.2
-
   }
 
   //----------------------------------------------------------------------------
@@ -49,7 +48,4 @@ class YoutubeTableViewCell: UITableViewCell {
     youtubeImageView.load(link: urlMedia)
     youtubeLabel.text = caption
   }
-
-
-
 }

@@ -47,6 +47,8 @@
 		A6B711BE26F10A43004BF549 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B711BC26F10A43004BF549 /* MenuViewController.xib */; };
 		A6B711C126F10A64004BF549 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711BF26F10A64004BF549 /* HomeViewController.swift */; };
 		A6B711C226F10A64004BF549 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B711C026F10A64004BF549 /* HomeViewController.xib */; };
+		A6BF9FCC275530C800DF51E1 /* StreamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BF9FCA275530C800DF51E1 /* StreamCollectionViewCell.swift */; };
+		A6BF9FCD275530C800DF51E1 /* StreamCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BF9FCB275530C800DF51E1 /* StreamCollectionViewCell.xib */; };
 		A6C29BD426FA268E00B77143 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C29BD226FA268E00B77143 /* ContainerViewController.swift */; };
 		A6C29BD526FA268E00B77143 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C29BD326FA268E00B77143 /* ContainerViewController.xib */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,8 @@
 		A6B711BC26F10A43004BF549 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		A6B711BF26F10A64004BF549 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A6B711C026F10A64004BF549 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		A6BF9FCA275530C800DF51E1 /* StreamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6BF9FCB275530C800DF51E1 /* StreamCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamCollectionViewCell.xib; sourceTree = "<group>"; };
 		A6C29BD226FA268E00B77143 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		A6C29BD326FA268E00B77143 /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +208,8 @@
 				A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */,
 				A6AFA8D0272DABA600794299 /* YoutubeTableViewCell.xib */,
 				A6B2A6D927341DB5000988B2 /* YoutubeHeaderView.xib */,
+				A6BF9FCA275530C800DF51E1 /* StreamCollectionViewCell.swift */,
+				A6BF9FCB275530C800DF51E1 /* StreamCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				A6849B59270A0EB0000D3F99 /* InstagramTableViewCell.xib in Resources */,
 				A6B711AC26F0F4E8004BF549 /* LaunchScreen.storyboard in Resources */,
 				A69188DB26FDEA4B00EB9B4E /* InstagramViewController.xib in Resources */,
+				A6BF9FCD275530C800DF51E1 /* StreamCollectionViewCell.xib in Resources */,
 				A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */,
 				A6B2A6DA27341DB5000988B2 /* YoutubeHeaderView.xib in Resources */,
 				A6B711C226F10A64004BF549 /* HomeViewController.xib in Resources */,
@@ -364,6 +371,7 @@
 				A69BA8B427429C9100CAA5F8 /* YoutubeVODProvider.swift in Sources */,
 				A638B7FE2710DCDB00203232 /* InstagramDelegateProtocol.swift in Sources */,
 				A69BA8BA27429CBA00CAA5F8 /* YoutubeShortConverter.swift in Sources */,
+				A6BF9FCC275530C800DF51E1 /* StreamCollectionViewCell.swift in Sources */,
 				A6B711C126F10A64004BF549 /* HomeViewController.swift in Sources */,
 				A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */,
 				A6AFA8CC272DA10100794299 /* YoutubeConverter.swift in Sources */,

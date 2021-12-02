@@ -19,7 +19,6 @@ class VideoViewController: UIViewController {
   var youtubeConverter = YoutubeConverter()
   var youtubeVODConverter = YoutubeVODConverter()
   var youtubeShortConverter = YoutubeShortConverter()
-
   var youtubeChannel: YoutubeChanel = .principale
 
   //----------------------------------------------------------------------------
@@ -40,7 +39,6 @@ class VideoViewController: UIViewController {
     youtubeTableView.delegate = self
     youtubeTableView.dataSource = self
     youtubeTableView.allowsSelection = true
-
 
     //activityIndicator.start()
     lauchRequest()
@@ -86,25 +84,6 @@ class VideoViewController: UIViewController {
       token = youtubeShortConverter.pageToken
     }
     return token
-  }
-
-  func whatChannelPageTn(token: String)  {
-
-    switch youtubeChannel {
-    case .principale:
-      youtubeConverter.convert(pageToken: token) { [weak self] result in
-        self?.youtubeTableView.reloadData()
-      }
-    case .VOD:
-      youtubeVODConverter.convert(pageToken: token) { [weak self] result in
-        self?.youtubeTableView.reloadData()
-      }
-    case .short:
-      youtubeShortConverter.convert(pageToken: token) { [weak self] result in
-        self?.youtubeTableView.reloadData()
-      }
-    }
-
   }
 }
 extension VideoViewController: YoutubeHeaderDelegate {
@@ -236,8 +215,6 @@ extension VideoViewController: UITableViewDelegate {
     UIApplication.shared.open(url)
 
   }
-
-
 }
 
 enum YoutubeChanel {

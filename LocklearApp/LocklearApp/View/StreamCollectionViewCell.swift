@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum Day {
+  case monday
+  //..
+}
 class StreamCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet weak var titleLabel: UILabel!
@@ -18,6 +22,12 @@ class StreamCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+  var isCurrentDay: Bool = false {
+    didSet {
+      titleLabel.textColor = isCurrentDay ? .blue : .gray
+    }
+  }
+
   func getDayOfWeek() {
     let dayOfToday = Date().dayOfWeek()
 
@@ -25,7 +35,7 @@ class StreamCollectionViewCell: UICollectionViewCell {
       print("Lundi")
       titleLabel.textColor = UIColor.blue
     }
-    else if dayOfToday == "Tuesday" && titleLabel.text == "Lun" {
+    else if dayOfToday == "Tuesday" && titleLabel.text == "Mar" {
       print("Mardi")
       titleLabel.textColor = UIColor.blue
     }

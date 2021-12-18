@@ -11,7 +11,7 @@
 		A638B7FE2710DCDB00203232 /* InstagramDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A638B7FD2710DCDB00203232 /* InstagramDelegateProtocol.swift */; };
 		A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */; };
 		A6849B59270A0EB0000D3F99 /* InstagramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */; };
-		A6849B5C270A1008000D3F99 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5B270A1008000D3F99 /* Extension.swift */; };
+		A6849B5C270A1008000D3F99 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5B270A1008000D3F99 /* UIImageView+Extensions.swift */; };
 		A6849B5E270A111F000D3F99 /* InstagramIDPicturesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5D270A111F000D3F99 /* InstagramIDPicturesProvider.swift */; };
 		A6849B60270A116B000D3F99 /* InstagramIDPicturesConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B5F270A116B000D3F99 /* InstagramIDPicturesConverter.swift */; };
 		A6849B62270A1EAF000D3F99 /* InstagramCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */; };
@@ -60,7 +60,7 @@
 		A638B7FD2710DCDB00203232 /* InstagramDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDelegateProtocol.swift; sourceTree = "<group>"; };
 		A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTableViewCell.swift; sourceTree = "<group>"; };
 		A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstagramTableViewCell.xib; sourceTree = "<group>"; };
-		A6849B5B270A1008000D3F99 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A6849B5B270A1008000D3F99 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A6849B5D270A111F000D3F99 /* InstagramIDPicturesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramIDPicturesProvider.swift; sourceTree = "<group>"; };
 		A6849B5F270A116B000D3F99 /* InstagramIDPicturesConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramIDPicturesConverter.swift; sourceTree = "<group>"; };
 		A6849B61270A1EAF000D3F99 /* InstagramCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCodable.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		A6849B5A270A0FF3000D3F99 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A6849B5B270A1008000D3F99 /* Extension.swift */,
+				A6849B5B270A1008000D3F99 /* UIImageView+Extensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -380,7 +380,7 @@
 				A6849B5E270A111F000D3F99 /* InstagramIDPicturesProvider.swift in Sources */,
 				A6849B68270AFDD7000D3F99 /* InstagramDetailsConverter.swift in Sources */,
 				A6849B58270A0EB0000D3F99 /* InstagramTableViewCell.swift in Sources */,
-				A6849B5C270A1008000D3F99 /* Extension.swift in Sources */,
+				A6849B5C270A1008000D3F99 /* UIImageView+Extensions.swift in Sources */,
 				A6849B66270AFDC8000D3F99 /* InstagramDetailsProvider.swift in Sources */,
 				A6849B60270A116B000D3F99 /* InstagramIDPicturesConverter.swift in Sources */,
 				A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */,

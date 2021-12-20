@@ -17,6 +17,7 @@ class StreamViewController: UIViewController {
   let days = ["Lun","Mar","Mer","Jeu","Vend","Sam","Dim"]
   let dayOfToday = Date().dayOfWeek()
 
+
   //----------------------------------------------------------------------------
   // MARK: - Outlets
   //----------------------------------------------------------------------------
@@ -28,6 +29,7 @@ class StreamViewController: UIViewController {
   @IBOutlet weak var minTimerLabel: UILabel!
   @IBOutlet weak var secTimerLabel: UILabel!
   @IBOutlet weak var calendarCollectionView: UICollectionView!
+  @IBOutlet weak var titleView: UIView!
 
   //----------------------------------------------------------------------------
   // MARK: - Init
@@ -40,26 +42,60 @@ class StreamViewController: UIViewController {
     calendarCollectionView.register(UINib(nibName:"StreamCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StreamCell")
 calendarCollectionView.isPagingEnabled = true
     startTimer()
+    setupCornerRadius()
+    setupGestureStream()
+    scrollToDayOfToday()
 
+  }
+
+  //----------------------------------------------------------------------------
+  // MARK: - Setup
+  //----------------------------------------------------------------------------
+
+  func setupGestureStream() {
     let tapGestureLeft = UITapGestureRecognizer()
     self.leftView.addGestureRecognizer(tapGestureLeft)
     tapGestureLeft.addTarget(self, action: #selector(clickLeft))
     let tapGestureRight = UITapGestureRecognizer()
     self.rightView.addGestureRecognizer(tapGestureRight)
     tapGestureRight.addTarget(self, action: #selector(clickRight))
+  }
 
+  func setupCornerRadius() {
+    titleView.layer.cornerRadius = 8
+    leftView.layer.cornerRadius = 4
+    rightView.layer.cornerRadius = 4
+  }
 
-    scrollToDayOfToday()
+  private func scrollToDayOfToday() {
+    print(dayOfToday)
+    if dayOfToday == "Lundi" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
+    else if dayOfToday == "Mardi" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
+    else if dayOfToday == "Mercredi" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 2, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
+    else if dayOfToday == "Jeudi" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
+    else if dayOfToday == "Vendredi" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 4, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
+    else if dayOfToday == "Samedi" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 5, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
+    else if  dayOfToday == "Dimanche" {
+      calendarCollectionView.scrollToItem(at: IndexPath(row: 6, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+    }
   }
 
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
-  private func scrollToDayOfToday() {
-    // Trouver index dans days du dayOfToday
-    // Scroll at IndexPath ...
-  }
   private func getLastVisibleIndexPath() -> IndexPath? {
     let visibleRect = CGRect(origin: calendarCollectionView.contentOffset,
                              size: calendarCollectionView.bounds.size)

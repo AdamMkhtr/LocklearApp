@@ -208,7 +208,6 @@
 				A6849B57270A0EB0000D3F99 /* InstagramTableViewCell.xib */,
 				A6AFA8D0272DABA600794299 /* YoutubeTableViewCell.xib */,
 				A6B2A6D927341DB5000988B2 /* YoutubeHeaderView.xib */,
-				A6BF9FCA275530C800DF51E1 /* StreamCollectionViewCell.swift */,
 				A6BF9FCB275530C800DF51E1 /* StreamCollectionViewCell.xib */,
 			);
 			path = View;
@@ -228,6 +227,7 @@
 				A6849B56270A0EB0000D3F99 /* InstagramTableViewCell.swift */,
 				A6AFA8CF272DABA600794299 /* YoutubeTableViewCell.swift */,
 				A6B2A6D727341D86000988B2 /* YoutubeHeaderView.swift */,
+				A6BF9FCA275530C800DF51E1 /* StreamCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

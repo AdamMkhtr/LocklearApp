@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     setupTapGestureRecognizer()
     tapStream()
+    setupTwitch()
   }
 
   func setupTapGestureRecognizer() {
@@ -100,6 +101,12 @@ class HomeViewController: UIViewController {
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
+
+  func setupTwitch() {
+    streamBarView.layer.cornerRadius = 2.5
+    streamBarView.layer.borderWidth = 0.0
+  }
+
 
   private func recolorAllView() {
     let selectedViews: [UIView] =

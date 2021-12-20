@@ -23,7 +23,10 @@ class StreamViewController: UIViewController {
 
   @IBOutlet weak var rightView: UIView!
   @IBOutlet weak var leftView: UIView!
-  @IBOutlet weak var timerLabel: UILabel!
+  @IBOutlet weak var dayTimerLabel: UILabel!
+  @IBOutlet weak var hourTimerLabel: UILabel!
+  @IBOutlet weak var minTimerLabel: UILabel!
+  @IBOutlet weak var secTimerLabel: UILabel!
   @IBOutlet weak var calendarCollectionView: UICollectionView!
 
   //----------------------------------------------------------------------------
@@ -35,6 +38,7 @@ class StreamViewController: UIViewController {
     calendarCollectionView.delegate = self
     calendarCollectionView.dataSource = self
     calendarCollectionView.register(UINib(nibName:"StreamCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StreamCell")
+calendarCollectionView.isPagingEnabled = true
     startTimer()
 
     let tapGestureLeft = UITapGestureRecognizer()
@@ -43,35 +47,44 @@ class StreamViewController: UIViewController {
     let tapGestureRight = UITapGestureRecognizer()
     self.rightView.addGestureRecognizer(tapGestureRight)
     tapGestureRight.addTarget(self, action: #selector(clickRight))
+
+
+    scrollToDayOfToday()
   }
 
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
+  private func scrollToDayOfToday() {
+    // Trouver index dans days du dayOfToday
+    // Scroll at IndexPath ...
+  }
+  private func getLastVisibleIndexPath() -> IndexPath? {
+    let visibleRect = CGRect(origin: calendarCollectionView.contentOffset,
+                             size: calendarCollectionView.bounds.size)
+    let visiblePoint = CGPoint(x: visibleRect.midX + (visibleRect.midX / 2), y: visibleRect.midY)
+    return calendarCollectionView.indexPathForItem(at: visiblePoint)
+  }
+
   @objc func clickRight() {
-    let visibleItems: NSArray = self.calendarCollectionView.indexPathsForVisibleItems as NSArray
-      guard let currentItem: IndexPath = visibleItems.object(at: 0) as? IndexPath else { return }
-    print("current \(currentItem)")
-    let nextItem: IndexPath = IndexPath(item: currentItem.item + 1, section: 0)
+    guard let currentindexPath = getLastVisibleIndexPath() else  { return }
+    let nextItem: IndexPath = IndexPath(row: currentindexPath.row + 1, section: currentindexPath.section)
 
     guard nextItem.row < days.count else {
       return
     }
-    print("next \(nextItem)")
-    print(currentItem)
-    self.calendarCollectionView.scrollToItem(at: nextItem, at: .left, animated: true)
-    print(currentItem)
+    self.calendarCollectionView.scrollToItem(at: nextItem, at: .right, animated: true)
   }
 
   @objc func clickLeft() {
-    let visibleItems: NSArray = self.calendarCollectionView.indexPathsForVisibleItems as NSArray
-    let currentItem: IndexPath = visibleItems.object(at: 0) as! IndexPath
-    let nextItem: IndexPath = IndexPath(item: currentItem.item - 1, section: 0)
-    if nextItem.row < days.count && nextItem.row >= 0{
-        self.calendarCollectionView.scrollToItem(at: nextItem, at: .right, animated: true)
+    guard let currentindexPath = getLastVisibleIndexPath() else  { return }
+    let previousItem: IndexPath = IndexPath(row: currentindexPath.row - 1, section: currentindexPath.section)
 
+    guard previousItem.row < days.count else {
+      return
     }
+    self.calendarCollectionView.scrollToItem(at: previousItem, at: .left, animated: true)
   }
 
   private var whatDate: TimeInterval {
@@ -113,7 +126,14 @@ class StreamViewController: UIViewController {
     let hours = (interval / 3600) % 24
     let days = (interval / 86400)
     let stringTimer = String(format: "%02d:%02d:%02d:%02d", days, hours, minutes, seconds)
-    timerLabel.text = stringTimer
+    let stringDays = String(format: "%02d:", days)
+    let stringHours = String(format: "%02d:", hours)
+    let stringMin = String(format: "%02d:", minutes)
+    let stringSec = String(format: "%02d", seconds)
+    dayTimerLabel.text =  stringDays
+    hourTimerLabel.text = stringHours
+    minTimerLabel.text =  stringMin
+    secTimerLabel.text =  stringSec
     return stringTimer
   }
 }
@@ -132,11 +152,14 @@ extension StreamViewController : UICollectionViewDataSource {
     cell.titleLabel.text = itemToShow //[indexPath.item]
 
 
+    // Trouver le jour de today
+    let dayOfToday = Date().dayOfWeek()!
+    if itemToShow == dayOfToday {
+      cell.isCurrentDay = true
+    }
 
-    //    dayOfToday
-    //    if true {
-    //      cell.isCurrentDay = true
-    //    }
+
+
 
 
     return cell

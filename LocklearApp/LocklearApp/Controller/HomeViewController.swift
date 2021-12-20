@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     setupTapGestureRecognizer()
     tapStream()
-    setupTwitch()
+    setupCornerRadius()
   }
 
   func setupTapGestureRecognizer() {
@@ -104,9 +104,23 @@ class HomeViewController: UIViewController {
 
   func setupTwitch() {
     streamBarView.layer.cornerRadius = 2.5
-    streamBarView.layer.borderWidth = 0.0
+  }
+  func setupYoutube() {
+    videoBarView.layer.cornerRadius = 2.5
+  }
+  func setupInstagram() {
+    instagramBarView.layer.cornerRadius = 2.5
+  }
+  func setupSong() {
+    songBarView.layer.cornerRadius = 2.5
   }
 
+  func setupCornerRadius() {
+    setupTwitch()
+    setupYoutube()
+    setupInstagram()
+    setupSong()
+  }
 
   private func recolorAllView() {
     let selectedViews: [UIView] =

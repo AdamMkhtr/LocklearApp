@@ -18,13 +18,14 @@ class StreamCollectionViewCell: UICollectionViewCell {
   
   override func awakeFromNib() {
         super.awakeFromNib()
-    getDayOfWeek()
+//    getDayOfWeek()
         // Initialization code
     }
 
   var isCurrentDay: Bool = false {
     didSet {
-      titleLabel.textColor = isCurrentDay ? .blue : .gray
+      titleLabel.textColor = isCurrentDay ? #colorLiteral(red: 0.3423830271, green: 0.9933084846, blue: 0.9951588511, alpha: 1) : .gray
+      hourLabel.textColor = isCurrentDay ? #colorLiteral(red: 0.3423830271, green: 0.9933084846, blue: 0.9951588511, alpha: 1) : .gray
     }
   }
 

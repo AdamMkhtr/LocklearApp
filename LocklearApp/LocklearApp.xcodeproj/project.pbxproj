@@ -52,7 +52,7 @@
 		A6BF9FCD275530C800DF51E1 /* StreamCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BF9FCB275530C800DF51E1 /* StreamCollectionViewCell.xib */; };
 		A6C29BD426FA268E00B77143 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C29BD226FA268E00B77143 /* ContainerViewController.swift */; };
 		A6C29BD526FA268E00B77143 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C29BD326FA268E00B77143 /* ContainerViewController.xib */; };
-		A6E50ACD277F6FE9006A30EB /* MyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E50ACC277F6FE9006A30EB /* MyCollectionViewLayout.swift */; };
+		A6E50ACD277F6FE9006A30EB /* MyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E50ACC277F6FE9006A30EB /* MyCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +105,7 @@
 		A6BF9FCB275530C800DF51E1 /* StreamCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamCollectionViewCell.xib; sourceTree = "<group>"; };
 		A6C29BD226FA268E00B77143 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		A6C29BD326FA268E00B77143 /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
-		A6E50ACC277F6FE9006A30EB /* MyCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewLayout.swift; sourceTree = "<group>"; };
+		A6E50ACC277F6FE9006A30EB /* MyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 			children = (
 				A6849B5B270A1008000D3F99 /* UIImageView+Extensions.swift */,
 				A6BF2FC02774C54E00EEEB62 /* Date+Extensions.swift */,
-				A6E50ACC277F6FE9006A30EB /* MyCollectionViewLayout.swift */,
+				A6E50ACC277F6FE9006A30EB /* MyCollectionViewFlowLayout.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 				A6B2A6D827341D86000988B2 /* YoutubeHeaderView.swift in Sources */,
 				A69188E226FDEA9C00EB9B4E /* VideoViewController.swift in Sources */,
 				A69BA8B627429C9F00CAA5F8 /* YoutubeVODConverter.swift in Sources */,
-				A6E50ACD277F6FE9006A30EB /* MyCollectionViewLayout.swift in Sources */,
+				A6E50ACD277F6FE9006A30EB /* MyCollectionViewFlowLayout.swift in Sources */,
 				A6849B64270A2682000D3F99 /* APIKeys.swift in Sources */,
 				A6AFA8D1272DABA600794299 /* YoutubeTableViewCell.swift in Sources */,
 				A69188D626FDEA3600EB9B4E /* StreamViewController.swift in Sources */,

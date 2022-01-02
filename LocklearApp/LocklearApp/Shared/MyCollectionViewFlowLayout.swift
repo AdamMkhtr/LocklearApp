@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MyCollectionViewLayout :UICollectionViewFlowLayout {
+class MyCollectionViewFlowLayout :UICollectionViewFlowLayout {
 
   override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
 
@@ -19,7 +19,7 @@ class MyCollectionViewLayout :UICollectionViewFlowLayout {
 
 
       // Page width used for estimating and calculating paging.
-    let pageWidth = self.itemSize.width / 3 + (self.itemSize.width / 3) //+ self.minimumInteritemSpacing
+    let pageWidth = self.itemSize.width / 3 + (self.itemSize.width / 3) - 8 //+ self.minimumInteritemSpacing
 
       // Make an estimation of the current page position.
       let approximatePage = collectionView.contentOffset.x/pageWidth

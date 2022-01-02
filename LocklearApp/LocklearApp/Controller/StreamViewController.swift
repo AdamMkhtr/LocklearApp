@@ -29,7 +29,7 @@ class StreamViewController: UIViewController {
   @IBOutlet weak var secTimerLabel: UILabel!
   @IBOutlet weak var calendarCollectionView: UICollectionView!
   @IBOutlet weak var titleView: UIView!
-  @IBOutlet weak var calendarCollectionViewFlowLayout: MyCollectionViewLayout!
+  @IBOutlet weak var calendarCollectionViewFlowLayout: MyCollectionViewFlowLayout!
 
   //----------------------------------------------------------------------------
   // MARK: - Init

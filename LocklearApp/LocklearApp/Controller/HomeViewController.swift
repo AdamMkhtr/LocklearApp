@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
   var didTapInstagram: (() -> Void)?
   var didTapSong: (() -> Void)?
 
+  var rightMenuIsHidden = true
+
   //----------------------------------------------------------------------------
   // MARK: - Outlets
   //----------------------------------------------------------------------------

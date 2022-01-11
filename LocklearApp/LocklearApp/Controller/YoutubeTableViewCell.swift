@@ -15,8 +15,7 @@ class YoutubeTableViewCell: UITableViewCell {
 
   @IBOutlet weak var youtubeImageView: UIImageView!
   @IBOutlet weak var youtubeLabel: UILabel!
-  @IBOutlet weak var contentVIew: UIView!
-
+  @IBOutlet weak var contentYoutubeView: UIView!
   //----------------------------------------------------------------------------
   // MARK: - Init
   //----------------------------------------------------------------------------
@@ -27,9 +26,10 @@ class YoutubeTableViewCell: UITableViewCell {
   }
 
   func setupCornerRadius() {
-    contentVIew.clipsToBounds = true
-    contentVIew.layer.cornerRadius = 3
-    contentVIew.layer.borderWidth = 0.2
+    contentYoutubeView.clipsToBounds = true
+    contentYoutubeView.layer.cornerRadius = 6
+    contentYoutubeView.layer.borderWidth = 0
+    
   }
 
   //----------------------------------------------------------------------------

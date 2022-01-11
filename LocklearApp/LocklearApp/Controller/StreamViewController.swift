@@ -29,7 +29,7 @@ class StreamViewController: UIViewController {
   @IBOutlet weak var secTimerLabel: UILabel!
   @IBOutlet weak var calendarCollectionView: UICollectionView!
   @IBOutlet weak var titleView: UIView!
-  @IBOutlet weak var calendarCollectionViewFlowLayout: MyCollectionViewFlowLayout!
+  @IBOutlet weak var calendarCollectionViewFlowLayout: UICollectionViewFlowLayout!
 
   //----------------------------------------------------------------------------
   // MARK: - Init
@@ -45,7 +45,7 @@ class StreamViewController: UIViewController {
     setupCornerRadius()
     setupGestureStream()
     calendarCollectionViewFlowLayout.minimumLineSpacing = 0
-//    scrollToDayOfToday()
+ //   scrollToDayOfToday()
   }
   
   //----------------------------------------------------------------------------
@@ -124,7 +124,14 @@ class StreamViewController: UIViewController {
   private func getLastVisibleIndexPath() -> IndexPath? {
     let visibleRect = CGRect(origin: calendarCollectionView.contentOffset,
                              size: calendarCollectionView.bounds.size)
-    let visiblePoint = CGPoint(x: visibleRect.midX + (visibleRect.midX / 2), y: visibleRect.midY)
+    let visiblePoint = CGPoint(x: visibleRect.midX + (visibleRect.midX / 2 - 15), y: visibleRect.midY)
+    return calendarCollectionView.indexPathForItem(at: visiblePoint)
+  }
+
+  private func getFirstVisibleIndexPath() -> IndexPath? {
+    let visibleRect = CGRect(origin: calendarCollectionView.contentOffset,
+                             size: calendarCollectionView.bounds.size)
+    let visiblePoint = CGPoint(x: visibleRect.midX - (visibleRect.midX / 2), y: visibleRect.midY)
     return calendarCollectionView.indexPathForItem(at: visiblePoint)
   }
 
@@ -139,14 +146,16 @@ class StreamViewController: UIViewController {
     guard nextItem.row < days.count else {
       return
     }
+
+    print(nextItem)
     self.calendarCollectionView.scrollToItem(at: nextItem, at: .right, animated: true)
   }
   
   @objc func clickLeft() {
-    guard let currentindexPath = getLastVisibleIndexPath() else  { return }
+    guard let currentindexPath = getFirstVisibleIndexPath() else  { return }
     let previousItem: IndexPath = IndexPath(row: currentindexPath.row - 1, section: currentindexPath.section)
     
-    guard previousItem.row < days.count else {
+    guard previousItem.row <= days.count else {
       return
     }
     self.calendarCollectionView.scrollToItem(at: previousItem, at: .left, animated: true)
@@ -245,6 +254,24 @@ extension StreamViewController : UICollectionViewDelegate {
     return 1
   }
 
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    let pageWidth = calendarCollectionView.bounds.size.width / 3
+    let minimumSpacing: CGFloat = 10
+
+    var cellToSwipe = Int(floor(scrollView.contentOffset.x / (pageWidth + minimumSpacing) + 0.5))
+
+
+    let daysCount = days.count
+    if cellToSwipe < 0 {
+      cellToSwipe = 0
+    } else if cellToSwipe >= daysCount  {
+      cellToSwipe = daysCount - 1
+    }
+
+    let indexPath = IndexPath(row: cellToSwipe, section: 0)
+    calendarCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+  }
+
 
 }
 
@@ -272,46 +299,46 @@ extension StreamViewController : UICollectionViewDelegateFlowLayout {
 
 
 
-//  private func indexOfMajorCell() -> Int {
-//      let itemWidth = calendarCollectionView.bounds.size.width / 4 - 4
-//      let proportionalOffset = calendarCollectionViewFlowLayour.collectionView!.contentOffset.x / itemWidth
-//      let index = Int(round(proportionalOffset))
-//      let safeIndex = max(0, min(days.count - 1, index))
-//      return safeIndex
-//  }
+//    private func indexOfMajorCell() -> Int {
+//        let itemWidth = calendarCollectionView.bounds.size.width / 4 - 4
+//        let proportionalOffset = calendarCollectionViewFlowLayout.collectionView!.contentOffset.x / itemWidth
+//        let index = Int(round(proportionalOffset))
+//        let safeIndex = max(0, min(days.count - 1, index))
+//        return safeIndex
+//    }
 //
-//  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//      indexOfCellBeforeDragging = indexOfMajorCell()
-//  }
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        indexOfCellBeforeDragging = indexOfMajorCell()
+//    }
 //
-//  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//      // Stop scrollView sliding:
-//      targetContentOffset.pointee = scrollView.contentOffset
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        // Stop scrollView sliding:
+//        targetContentOffset.pointee = scrollView.contentOffset
 //
-//      // calculate where scrollView should snap to:
-//      let indexOfMajorCell = self.indexOfMajorCell()
+//        // calculate where scrollView should snap to:
+//        let indexOfMajorCell = self.indexOfMajorCell()
 //
-//      // calculate conditions:
-//      let swipeVelocityThreshold: CGFloat = 0.5 // after some trail and error
-//      let hasEnoughVelocityToSlideToTheNextCell = indexOfCellBeforeDragging + 1 < days.count && velocity.x > swipeVelocityThreshold
-//      let hasEnoughVelocityToSlideToThePreviousCell = indexOfCellBeforeDragging - 1 >= 0 && velocity.x < -swipeVelocityThreshold
-//      let majorCellIsTheCellBeforeDragging = indexOfMajorCell == indexOfCellBeforeDragging
-//      let didUseSwipeToSkipCell = majorCellIsTheCellBeforeDragging && (hasEnoughVelocityToSlideToTheNextCell || hasEnoughVelocityToSlideToThePreviousCell)
+//        // calculate conditions:
+//        let swipeVelocityThreshold: CGFloat = 0.4 // after some trail and error
+//        let hasEnoughVelocityToSlideToTheNextCell = indexOfCellBeforeDragging + 1 < days.count && velocity.x > swipeVelocityThreshold
+//        let hasEnoughVelocityToSlideToThePreviousCell = indexOfCellBeforeDragging - 1 >= 0 && velocity.x < -swipeVelocityThreshold
+//        let majorCellIsTheCellBeforeDragging = indexOfMajorCell == indexOfCellBeforeDragging
+//        let didUseSwipeToSkipCell = majorCellIsTheCellBeforeDragging && (hasEnoughVelocityToSlideToTheNextCell || hasEnoughVelocityToSlideToThePreviousCell)
 //
-//      if didUseSwipeToSkipCell {
+//        if didUseSwipeToSkipCell {
 //
-//          let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
-//          let toValue = calendarCollectionViewFlowLayour.itemSize.width * CGFloat(snapToIndex)
+//            let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
+//            let toValue = calendarCollectionViewFlowLayout.itemSize.width * CGFloat(snapToIndex)
 //
-//          // Damping equal 1 => no oscillations => decay animation:
-//          UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
-//              scrollView.contentOffset = CGPoint(x: toValue, y: 0)
-//              scrollView.layoutIfNeeded()
-//          }, completion: nil)
+//            // Damping equal 1 => no oscillations => decay animation:
+//          UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
+//                scrollView.contentOffset = CGPoint(x: toValue, y: 0)
+//                scrollView.layoutIfNeeded()
+//            }, completion: nil)
 //
-//      } else {
-//          // This is a much better way to scroll to a cell:
-//          let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
-//        calendarCollectionViewFlowLayour.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//      }
-//  }
+//        } else {
+//            // This is a much better way to scroll to a cell:
+//            let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
+//          calendarCollectionViewFlowLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//        }
+//    }

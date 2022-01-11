@@ -21,15 +21,16 @@ class ContainerViewController: UIViewController {
   let instagramController = InstagramViewController(nibName: nil, bundle: nil)
   let videoController = VideoViewController(nibName: nil, bundle: nil)
 
-
   //----------------------------------------------------------------------------
   // MARK: - Outlets
   //----------------------------------------------------------------------------
 
-  @IBOutlet weak var sideMenuView: UIView!
+  @IBOutlet weak var menuView: UIView!
   @IBOutlet weak var sideNotificationContainer: UIView!
   @IBOutlet weak var sideContainer: UIView!
   @IBOutlet weak var baseContainerView: UIView!
+  @IBOutlet weak var shadowView: UIView!
+  @IBOutlet weak var leadingMenuConstraint: NSLayoutConstraint!
 
   //----------------------------------------------------------------------------
   // MARK: - Init
@@ -41,6 +42,66 @@ class ContainerViewController: UIViewController {
     configureStreamController()
     setupSideMenu()
     setupBaseContainer()
+    animationDisapearRightMenu()
+    animationDisapearNotificationMenu()
+  }
+
+  //----------------------------------------------------------------------------
+  // MARK: - Animation side menu
+  //----------------------------------------------------------------------------
+
+  func animationDisapearRightMenu() {
+    let screenWidth = UIScreen.main.bounds.width
+    let disparear = CGAffineTransform(translationX: -screenWidth, y: 0)
+
+    UIView.transition(with: self.view, duration: 0.33, options:
+           [.curveEaseOut], animations: {
+      self.sideContainer.transform = disparear
+           }, completion: {_ in
+       })
+  }
+
+  func animationDisapearNotificationMenu() {
+    let screenWidth = UIScreen.main.bounds.width
+    let disparear = CGAffineTransform(translationX: +screenWidth, y: 0)
+
+    UIView.transition(with: self.view, duration: 0.33, options:
+           [.curveEaseOut], animations: {
+      self.sideNotificationContainer.transform = disparear
+           }, completion: {_ in
+       })
+  }
+
+  func animationAppearRightMenu() {
+    if sideContainer.isHidden == true {
+      sideContainer.isHidden = false
+    }
+
+    let identity = CGAffineTransform.identity
+
+    UIView.transition(with: self.view, duration: 0.33, options:
+           [.curveEaseOut], animations: {
+      self.sideContainer.transform = identity
+           }, completion: {_ in
+       })
+  }
+
+  func animationAppearNotificationMenu() {
+    if sideNotificationContainer.isHidden == true {
+      sideNotificationContainer.isHidden = false
+    }
+
+    let identity = CGAffineTransform.identity
+
+    UIView.transition(with: self.view, duration: 0.33, options:
+           [.curveEaseOut], animations: {
+      self.sideNotificationContainer.transform = identity
+           }, completion: {_ in
+       })
+  }
+
+  func shadowHomeView() {
+    shadowView.isHidden = false
   }
 
   //----------------------------------------------------------------------------
@@ -49,10 +110,15 @@ class ContainerViewController: UIViewController {
 
   func setupSideMenu() {
     homeController.didTapMenu = { [weak self] in
-      self?.sideContainer.isHidden = false
+
+      self?.animationAppearRightMenu()
+      self?.shadowHomeView()
     }
+
     homeController.didTapNotification = { [weak self] in
-      self?.sideNotificationContainer.isHidden = false
+
+      self?.animationAppearNotificationMenu()
+      self?.shadowHomeView()
     }
   }
 
@@ -76,8 +142,9 @@ class ContainerViewController: UIViewController {
   //----------------------------------------------------------------------------
 
   @IBAction func dismissMenu(_ sender: Any) {
-    sideContainer.isHidden = true
-    sideNotificationContainer.isHidden = true
+    animationDisapearRightMenu()
+    animationDisapearNotificationMenu()
+    shadowView.isHidden = true
   }
 
   //----------------------------------------------------------------------------
@@ -95,17 +162,17 @@ class ContainerViewController: UIViewController {
   //----------------------------------------------------------------------------
 
   func configureHomeController() {
-    sideMenuView.addSubview(homeController.view)
+    menuView.addSubview(homeController.view)
     addChild(homeController)
     homeController.didMove(toParent: self)
 
     homeController.view.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      homeController.view.topAnchor.constraint(equalTo: sideMenuView.topAnchor),
-      homeController.view.bottomAnchor.constraint(equalTo: sideMenuView.bottomAnchor),
-      homeController.view.leadingAnchor.constraint(equalTo: sideMenuView.leadingAnchor),
-      homeController.view.trailingAnchor.constraint(equalTo: sideMenuView.trailingAnchor),
+      homeController.view.topAnchor.constraint(equalTo: menuView.topAnchor),
+      homeController.view.bottomAnchor.constraint(equalTo: menuView.bottomAnchor),
+      homeController.view.leadingAnchor.constraint(equalTo: menuView.leadingAnchor),
+      homeController.view.trailingAnchor.constraint(equalTo: menuView.trailingAnchor),
     ])
   }
 
@@ -221,13 +288,7 @@ class ContainerViewController: UIViewController {
     ])
   }
 
-  func shadowHomeView() {
-    // à avoir comment faire
-    view.layer.shadowColor = UIColor.black.cgColor
-    view.layer.shadowOpacity = 1
-    view.layer.shadowOffset = .zero
-    view.layer.shadowRadius = 10
-  }
+
 
 }
 

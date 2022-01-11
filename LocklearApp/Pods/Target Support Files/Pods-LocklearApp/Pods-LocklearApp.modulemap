@@ -1,0 +1,6 @@
+framework module Pods_LocklearApp {
+  umbrella header "Pods-LocklearApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -13,9 +13,6 @@ class YoutubeHeaderView: UITableViewHeaderFooterView {
   // MARK: - Properties
   //----------------------------------------------------------------------------
 
-  var didTapPrincipale: (() -> Void)?
-  var didTapVOD: (() -> Void)?
-  var didTapShorts: (() -> Void)?
   weak var delegate: YoutubeHeaderDelegate?
 
   //----------------------------------------------------------------------------
@@ -69,21 +66,18 @@ class YoutubeHeaderView: UITableViewHeaderFooterView {
   @objc func tapPrincipale() {
     recolorAllView()
     principaleLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    didTapPrincipale?()
     delegate?.didLauchRequestPrincipale()
   }
 
   @objc func tapVOD() {
     recolorAllView()
     VODLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    didTapVOD?()
     delegate?.didLauchRequestVOD()
   }
 
   @objc func tapShort() {
     recolorAllView()
     shortsLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    didTapShorts?()
     delegate?.didLauchRequestShort()
   }
 
@@ -91,7 +85,7 @@ class YoutubeHeaderView: UITableViewHeaderFooterView {
 
 
 protocol YoutubeHeaderDelegate: AnyObject {
-  func didLauchRequestVOD()//(completion: @escaping((Result<[Item], Error>) -> Void))
+  func didLauchRequestVOD()
   func didLauchRequestShort()
   func didLauchRequestPrincipale()
 }

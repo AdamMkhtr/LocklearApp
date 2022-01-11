@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,10 +19,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQW-uF-3eN">
-                    <rect key="frame" x="0.0" y="44" width="414" height="93"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvh-jq-4Am">
-                            <rect key="frame" x="159" y="36.5" width="96" height="20.5"/>
+                            <rect key="frame" x="159" y="59" width="96" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                     <constraints>
                         <constraint firstItem="gvh-jq-4Am" firstAttribute="centerX" secondItem="dQW-uF-3eN" secondAttribute="centerX" id="7hg-hY-hO5"/>
                         <constraint firstItem="gvh-jq-4Am" firstAttribute="centerY" secondItem="dQW-uF-3eN" secondAttribute="centerY" id="Kkr-7L-4M8"/>
-                        <constraint firstAttribute="width" secondItem="dQW-uF-3eN" secondAttribute="height" multiplier="138:31" id="gG2-bY-Llx"/>
+                        <constraint firstAttribute="width" secondItem="dQW-uF-3eN" secondAttribute="height" multiplier="3:1" id="gG2-bY-Llx"/>
                     </constraints>
                 </view>
             </subviews>
@@ -42,7 +42,7 @@
             <constraints>
                 <constraint firstItem="dQW-uF-3eN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2gw-88-eQN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dQW-uF-3eN" secondAttribute="trailing" id="Ql6-nv-a2y"/>
-                <constraint firstItem="dQW-uF-3eN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="XnY-b2-jT4"/>
+                <constraint firstItem="dQW-uF-3eN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XnY-b2-jT4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol InstagramDelegate {
-func didCollectIDPictures(idPictures: [String])
+  func didCollectIDPictures(idPictures: [String])
 }

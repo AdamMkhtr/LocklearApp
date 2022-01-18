@@ -8,34 +8,34 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Properties
   //----------------------------------------------------------------------------
-
-  let menuController = MenuViewController(nibName: nil, bundle: nil)
+  
+  let menuController = SideMenuViewController(nibName: nil, bundle: nil)
   let homeController = HomeViewController(nibName: nil, bundle: nil)
   let notificationController = NotificationSideMenuViewController(nibName: nil, bundle:   nil)
   let streamController = StreamViewController(nibName: nil, bundle: nil)
   let songController = SongViewController(nibName: nil, bundle: nil)
   let instagramController = InstagramViewController(nibName: nil, bundle: nil)
   let videoController = VideoViewController(nibName: nil, bundle: nil)
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Outlets
   //----------------------------------------------------------------------------
-
+  
   @IBOutlet weak var menuView: UIView!
   @IBOutlet weak var sideNotificationContainer: UIView!
   @IBOutlet weak var sideContainer: UIView!
   @IBOutlet weak var baseContainerView: UIView!
   @IBOutlet weak var shadowView: UIView!
   @IBOutlet weak var leadingMenuConstraint: NSLayoutConstraint!
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Init
   //----------------------------------------------------------------------------
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureAllMenuContainer()
@@ -45,83 +45,90 @@ class ContainerViewController: UIViewController {
     animationDisapearRightMenu()
     animationDisapearNotificationMenu()
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Animation side menu
   //----------------------------------------------------------------------------
-
+  
+  /// Anime the vanishing of the right side menu
   func animationDisapearRightMenu() {
     let screenWidth = UIScreen.main.bounds.width
     let disparear = CGAffineTransform(translationX: -screenWidth, y: 0)
-
+    
     UIView.transition(with: self.view, duration: 0.33, options:
-           [.curveEaseOut], animations: {
+                        [.curveEaseOut], animations: {
       self.sideContainer.transform = disparear
-           }, completion: {_ in
-       })
+    }, completion: {_ in
+    })
   }
-
+  
+  /// Anime the vanishing of the left side menu
   func animationDisapearNotificationMenu() {
     let screenWidth = UIScreen.main.bounds.width
     let disparear = CGAffineTransform(translationX: +screenWidth, y: 0)
-
+    
     UIView.transition(with: self.view, duration: 0.33, options:
-           [.curveEaseOut], animations: {
+                        [.curveEaseOut], animations: {
       self.sideNotificationContainer.transform = disparear
-           }, completion: {_ in
-       })
+    }, completion: {_ in
+    })
   }
-
+  
+  /// Anime the advent of the right side menu
   func animationAppearRightMenu() {
     if sideContainer.isHidden == true {
       sideContainer.isHidden = false
     }
-
+    
     let identity = CGAffineTransform.identity
-
+    
     UIView.transition(with: self.view, duration: 0.33, options:
-           [.curveEaseOut], animations: {
+                        [.curveEaseOut], animations: {
       self.sideContainer.transform = identity
-           }, completion: {_ in
-       })
+    }, completion: {_ in
+    })
   }
-
+  
+  /// Anime the advent of the left side menu
   func animationAppearNotificationMenu() {
     if sideNotificationContainer.isHidden == true {
       sideNotificationContainer.isHidden = false
     }
-
+    
     let identity = CGAffineTransform.identity
-
+    
     UIView.transition(with: self.view, duration: 0.33, options:
-           [.curveEaseOut], animations: {
+                        [.curveEaseOut], animations: {
       self.sideNotificationContainer.transform = identity
-           }, completion: {_ in
-       })
+    }, completion: {_ in
+    })
   }
-
+  
+  /// the shadow view become visible
   func shadowHomeView() {
     shadowView.isHidden = false
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Setup
   //----------------------------------------------------------------------------
-
+  
+  /// Setup the animation for the both side menu.
   func setupSideMenu() {
     homeController.didTapMenu = { [weak self] in
-
+      
       self?.animationAppearRightMenu()
       self?.shadowHomeView()
     }
-
+    
     homeController.didTapNotification = { [weak self] in
-
+      
       self?.animationAppearNotificationMenu()
       self?.shadowHomeView()
     }
   }
-
+  
+  /// Setup the button for the base container.
   func setupBaseContainer() {
     homeController.didTapStream = { [weak self] in
       self?.configureStreamController()
@@ -136,38 +143,40 @@ class ContainerViewController: UIViewController {
       self?.configureVideoController()
     }
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
-
+  
   @IBAction func dismissMenu(_ sender: Any) {
     animationDisapearRightMenu()
     animationDisapearNotificationMenu()
     shadowView.isHidden = true
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Configure Container
   //----------------------------------------------------------------------------
-
+  
+  /// Call the all function for configure container of the app.
   func configureAllMenuContainer() {
     configureHomeController()
     configureSideMenuController()
     configureNotificationController()
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Top bar container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the home container.
   func configureHomeController() {
     menuView.addSubview(homeController.view)
     addChild(homeController)
     homeController.didMove(toParent: self)
-
+    
     homeController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       homeController.view.topAnchor.constraint(equalTo: menuView.topAnchor),
       homeController.view.bottomAnchor.constraint(equalTo: menuView.bottomAnchor),
@@ -175,17 +184,18 @@ class ContainerViewController: UIViewController {
       homeController.view.trailingAnchor.constraint(equalTo: menuView.trailingAnchor),
     ])
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Side menu container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the side menu container.
   func configureSideMenuController() {
     sideContainer.addSubview(menuController.view)
     addChild(menuController)
     menuController.didMove(toParent: self)
     menuController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       menuController.view.topAnchor.constraint(equalTo: sideContainer.topAnchor),
       menuController.view.bottomAnchor.constraint(equalTo: sideContainer.bottomAnchor),
@@ -193,17 +203,18 @@ class ContainerViewController: UIViewController {
       menuController.view.trailingAnchor.constraint(equalTo: sideContainer.trailingAnchor),
     ])
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Notification Container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the side notification menu container.
   func configureNotificationController() {
     sideNotificationContainer.addSubview(notificationController.view)
     addChild(notificationController)
     notificationController.didMove(toParent: self)
     notificationController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       notificationController.view.topAnchor.constraint(equalTo: sideNotificationContainer.topAnchor),
       notificationController.view.bottomAnchor.constraint(equalTo: sideNotificationContainer.bottomAnchor),
@@ -211,17 +222,18 @@ class ContainerViewController: UIViewController {
       notificationController.view.trailingAnchor.constraint(equalTo: sideNotificationContainer.trailingAnchor),
     ])
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Stream Container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the base container install the stream controller.
   func configureStreamController() {
     baseContainerView.addSubview(streamController.view)
     addChild(streamController)
     streamController.didMove(toParent: self)
     streamController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       streamController.view.topAnchor.constraint(equalTo: baseContainerView.topAnchor),
       streamController.view.bottomAnchor.constraint(equalTo: baseContainerView.bottomAnchor),
@@ -229,19 +241,18 @@ class ContainerViewController: UIViewController {
       streamController.view.trailingAnchor.constraint(equalTo: baseContainerView.trailingAnchor),
     ])
   }
-
-
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Song Container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the base container install the song controller.
   func configureSongController() {
     baseContainerView.addSubview(songController.view)
     addChild(songController)
     songController.didMove(toParent: self)
     songController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       songController.view.topAnchor.constraint(equalTo: baseContainerView.topAnchor),
       songController.view.bottomAnchor.constraint(equalTo: baseContainerView.bottomAnchor),
@@ -249,19 +260,18 @@ class ContainerViewController: UIViewController {
       songController.view.trailingAnchor.constraint(equalTo: baseContainerView.trailingAnchor),
     ])
   }
-
-
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Instagram Container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the base container install the instagram controller.
   func configureInstagramController() {
     baseContainerView.addSubview(instagramController.view)
     addChild(instagramController)
     instagramController.didMove(toParent: self)
     instagramController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       instagramController.view.topAnchor.constraint(equalTo: baseContainerView.topAnchor),
       instagramController.view.bottomAnchor.constraint(equalTo: baseContainerView.bottomAnchor),
@@ -269,17 +279,18 @@ class ContainerViewController: UIViewController {
       instagramController.view.trailingAnchor.constraint(equalTo: baseContainerView.trailingAnchor),
     ])
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Video Container
   //----------------------------------------------------------------------------
-
+  
+  /// Configure the view for the base container install the video controller.
   func configureVideoController() {
     baseContainerView.addSubview(videoController.view)
     addChild(videoController)
     videoController.didMove(toParent: self)
     videoController.view.translatesAutoresizingMaskIntoConstraints = false
-
+    
     NSLayoutConstraint.activate([
       videoController.view.topAnchor.constraint(equalTo: baseContainerView.topAnchor),
       videoController.view.bottomAnchor.constraint(equalTo: baseContainerView.bottomAnchor),
@@ -287,9 +298,4 @@ class ContainerViewController: UIViewController {
       videoController.view.trailingAnchor.constraint(equalTo: baseContainerView.trailingAnchor),
     ])
   }
-
-
-
 }
-
-

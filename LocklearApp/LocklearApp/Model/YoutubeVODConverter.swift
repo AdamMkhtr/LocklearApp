@@ -8,27 +8,27 @@
 import Foundation
 
 class YoutubeVODConverter {
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Error Management
   //----------------------------------------------------------------------------
-
+  
   enum YoutubeConverterError: Error {
     case noResponse
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Properties
   //----------------------------------------------------------------------------
-
+  
   let youtubeProvider = YoutubeVODProvider()
   private(set) var videoDetails = [Item]()
   var pageToken = ""
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
-
+  
   /// Send the data on the API call to delegate
   /// - Parameter query: recup the list og ingredients for API call
   func convert(pageToken: String, completion: @escaping ((Result<[Item], Error>) -> Void)) {
@@ -41,7 +41,7 @@ class YoutubeVODConverter {
         }
         self?.videoDetails += videos
         completion(.success(videos))
-
+        
       case .failure(let error):
         completion(.failure(error))
       }
@@ -56,6 +56,6 @@ class YoutubeVODConverter {
     guard videos.count > 0 else { return nil }
     return videos
   }
-
-
+  
+  
 }

@@ -30,6 +30,7 @@ class InstagramTableViewCell: UITableViewCell {
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
+  /// Setup corner radius for the cell
   func setupCornerRadius() {
     contentInstagramView.clipsToBounds = true
     contentInstagramView.layer.cornerRadius = 6
@@ -40,6 +41,10 @@ class InstagramTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
 
+  /// configure the cell for the instagram picture
+  /// - Parameters:
+  ///   - urlMedia: use the url for upload the picture
+  ///   - caption: collect the caption of the picture for the cell
   func configure(urlMedia: String, caption: String) {
     pictureImageView.load(link: urlMedia)
     captionPictureLabel.text = caption

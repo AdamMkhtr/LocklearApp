@@ -43,7 +43,7 @@
 		A6B711A226F0F4E8004BF549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711A126F0F4E8004BF549 /* SceneDelegate.swift */; };
 		A6B711A926F0F4E8004BF549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B711A826F0F4E8004BF549 /* Assets.xcassets */; };
 		A6B711AC26F0F4E8004BF549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B711AA26F0F4E8004BF549 /* LaunchScreen.storyboard */; };
-		A6B711BD26F10A43004BF549 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711BB26F10A43004BF549 /* MenuViewController.swift */; };
+		A6B711BD26F10A43004BF549 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711BB26F10A43004BF549 /* SideMenuViewController.swift */; };
 		A6B711BE26F10A43004BF549 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B711BC26F10A43004BF549 /* MenuViewController.xib */; };
 		A6B711C126F10A64004BF549 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B711BF26F10A64004BF549 /* HomeViewController.swift */; };
 		A6B711C226F10A64004BF549 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B711C026F10A64004BF549 /* HomeViewController.xib */; };
@@ -96,7 +96,7 @@
 		A6B711A826F0F4E8004BF549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6B711AB26F0F4E8004BF549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6B711AD26F0F4E8004BF549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6B711BB26F10A43004BF549 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A6B711BB26F10A43004BF549 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		A6B711BC26F10A43004BF549 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		A6B711BF26F10A64004BF549 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A6B711C026F10A64004BF549 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 			children = (
 				A6C29BD226FA268E00B77143 /* ContainerViewController.swift */,
 				A6B711BF26F10A64004BF549 /* HomeViewController.swift */,
-				A6B711BB26F10A43004BF549 /* MenuViewController.swift */,
+				A6B711BB26F10A43004BF549 /* SideMenuViewController.swift */,
 				A69188D026FB6A6400EB9B4E /* NotificationSideMenuViewController.swift */,
 				A69188D426FDEA3600EB9B4E /* StreamViewController.swift */,
 				A69188D826FDEA4B00EB9B4E /* InstagramViewController.swift */,
@@ -394,7 +394,7 @@
 				A6C29BD426FA268E00B77143 /* ContainerViewController.swift in Sources */,
 				A69188DA26FDEA4B00EB9B4E /* InstagramViewController.swift in Sources */,
 				A69188DE26FDEA6E00EB9B4E /* SongViewController.swift in Sources */,
-				A6B711BD26F10A43004BF549 /* MenuViewController.swift in Sources */,
+				A6B711BD26F10A43004BF549 /* SideMenuViewController.swift in Sources */,
 				A6AFA8CE272DA29000794299 /* YoutubeCodable.swift in Sources */,
 				A6BF2FC12774C54E00EEEB62 /* Date+Extensions.swift in Sources */,
 				A6B2A6D827341D86000988B2 /* YoutubeHeaderView.swift in Sources */,

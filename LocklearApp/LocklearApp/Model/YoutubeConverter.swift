@@ -12,23 +12,23 @@ class YoutubeConverter {
   //----------------------------------------------------------------------------
   // MARK: - Error Management
   //----------------------------------------------------------------------------
-
+  
   enum YoutubeConverterError: Error {
     case noResponse
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Properties
   //----------------------------------------------------------------------------
-
+  
   let youtubeProvider = YoutubeProvider()
   var videoDetails = [Item]()
   var pageToken = ""
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
-
+  
   /// Send the data on the API call to delegate
   /// - Parameter query: recup the list og ingredients for API call
   func convert(pageToken: String, completion: @escaping ((Result<[Item], Error>) -> Void)) {
@@ -41,7 +41,7 @@ class YoutubeConverter {
         }
         self?.videoDetails += videos
         completion(.success(videos))
-
+        
       case .failure(let error):
         completion(.failure(error))
       }
@@ -56,6 +56,6 @@ class YoutubeConverter {
     guard videos.count > 0 else { return nil }
     return videos
   }
-
-
+  
+  
 }

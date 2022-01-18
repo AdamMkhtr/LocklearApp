@@ -9,37 +9,37 @@ import Foundation
 import Alamofire
 
 class YoutubeVODProvider {
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Error Management
   //----------------------------------------------------------------------------
-
+  
   enum YoutubeProviderError: LocalizedError {
     case errorResponse
-
+    
     var errorDescription: String? {
       switch self {
       case .errorResponse: return "error response"
       }
     }
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Properties
   //----------------------------------------------------------------------------
-
+  
   private var url = "https://www.googleapis.com/youtube/v3/search?"
-
+  
   private let apiKey: String
-
+  
   init(apiKey: String = APIKeys.youtubeAPIKey) {
     self.apiKey = apiKey
   }
-
+  
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
-
+  
   /// Call the API Youtube for collect data
   /// - Parameters:
   ///   - completion: completion return youtube details data
@@ -56,7 +56,7 @@ class YoutubeVODProvider {
       "key": apiKey
     ]
     let request = AF.request(url, parameters: queryParameters)
-
+    
     request.responseJSON { (response) in
       guard let data = response.data else {
         completion(.failure(YoutubeProviderError.errorResponse))
@@ -72,5 +72,5 @@ class YoutubeVODProvider {
       }
     }
   }
-
+  
 }

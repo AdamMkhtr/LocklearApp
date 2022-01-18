@@ -47,12 +47,12 @@ struct DetailsPictures: Codable {
   let mediaURL: String
   let caption: String?
   let permalink: String
-
-
+  
+  
   enum CodingKeys: String, CodingKey {
-      case id
-      case mediaURL = "media_url"
-      case caption, permalink
+    case id
+    case mediaURL = "media_url"
+    case caption, permalink
   }
 }
 

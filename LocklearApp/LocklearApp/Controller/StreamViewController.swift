@@ -45,13 +45,14 @@ class StreamViewController: UIViewController {
     setupCornerRadius()
     setupGestureStream()
     calendarCollectionViewFlowLayout.minimumLineSpacing = 0
- //   scrollToDayOfToday()
+    //   scrollToDayOfToday()
   }
   
   //----------------------------------------------------------------------------
   // MARK: - Setup
   //----------------------------------------------------------------------------
-  
+
+  /// Setup the gesture recognizer for the button next and previous day.
   func setupGestureStream() {
     let tapGestureLeft = UITapGestureRecognizer()
     self.leftView.addGestureRecognizer(tapGestureLeft)
@@ -60,43 +61,46 @@ class StreamViewController: UIViewController {
     self.rightView.addGestureRecognizer(tapGestureRight)
     tapGestureRight.addTarget(self, action: #selector(clickRight))
   }
-  
+
+  /// Setup the corner radius for the views.
   func setupCornerRadius() {
     titleView.layer.cornerRadius = 8
     leftView.layer.cornerRadius = 4
     rightView.layer.cornerRadius = 4
   }
   
-//  private func scrollToDayOfToday() {
-//    if dayOfToday == "Lundi" || dayOfToday == "Monday"{
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//    else if dayOfToday == "Mardi" || dayOfToday == "Tuesday" {
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//    else if dayOfToday == "Mercredi" || dayOfToday == "Wednesday"{
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 2, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//    else if dayOfToday == "Jeudi" || dayOfToday == "Thursday"{
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//    else if dayOfToday == "Vendredi" || dayOfToday == "Friday" {
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 4, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//    else if dayOfToday == "Samedi" || dayOfToday == "Saturday" {
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 5, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//    else if  dayOfToday == "Dimanche" || dayOfToday == "Sunday" {
-//      calendarCollectionView.scrollToItem(at: IndexPath(row: 6, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
-//    }
-//  }
+  //  private func scrollToDayOfToday() {
+  //    if dayOfToday == "Lundi" || dayOfToday == "Monday"{
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //    else if dayOfToday == "Mardi" || dayOfToday == "Tuesday" {
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //    else if dayOfToday == "Mercredi" || dayOfToday == "Wednesday"{
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 2, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //    else if dayOfToday == "Jeudi" || dayOfToday == "Thursday"{
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //    else if dayOfToday == "Vendredi" || dayOfToday == "Friday" {
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 4, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //    else if dayOfToday == "Samedi" || dayOfToday == "Saturday" {
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 5, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //    else if  dayOfToday == "Dimanche" || dayOfToday == "Sunday" {
+  //      calendarCollectionView.scrollToItem(at: IndexPath(row: 6, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: false)
+  //    }
+  //  }
   
   //----------------------------------------------------------------------------
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
-  func shortStringDay() -> String {
-        var shortStringDay = ""
+  /// Collect the string of dayOfToday for return shortcut string.
+  /// - Returns: shortcut of the day of today.
+  private func shortStringDay() -> String {
+    var shortStringDay = ""
     if dayOfToday == "Lundi" || dayOfToday == "Monday" {
       shortStringDay = "Lun"
     }
@@ -121,6 +125,8 @@ class StreamViewController: UIViewController {
     return shortStringDay
   }
 
+  /// Check what is the last day on the collection view
+  /// - Returns: the index of the last cell
   private func getLastVisibleIndexPath() -> IndexPath? {
     let visibleRect = CGRect(origin: calendarCollectionView.contentOffset,
                              size: calendarCollectionView.bounds.size)
@@ -128,6 +134,8 @@ class StreamViewController: UIViewController {
     return calendarCollectionView.indexPathForItem(at: visiblePoint)
   }
 
+  /// Check what is the first day on the collection view
+  /// - Returns: the index of the first cell
   private func getFirstVisibleIndexPath() -> IndexPath? {
     let visibleRect = CGRect(origin: calendarCollectionView.contentOffset,
                              size: calendarCollectionView.bounds.size)
@@ -139,6 +147,7 @@ class StreamViewController: UIViewController {
   // MARK: - click swipe collectionView
   //----------------------------------------------------------------------------
 
+  /// Scroll to the next cell
   @objc func clickRight() {
     guard let currentindexPath = getLastVisibleIndexPath() else  { return }
     let nextItem: IndexPath = IndexPath(row: currentindexPath.row + 1, section: currentindexPath.section)
@@ -150,7 +159,8 @@ class StreamViewController: UIViewController {
     print(nextItem)
     self.calendarCollectionView.scrollToItem(at: nextItem, at: .right, animated: true)
   }
-  
+
+  /// Scroll to the previous cell
   @objc func clickLeft() {
     guard let currentindexPath = getFirstVisibleIndexPath() else  { return }
     let previousItem: IndexPath = IndexPath(row: currentindexPath.row - 1, section: currentindexPath.section)
@@ -162,9 +172,10 @@ class StreamViewController: UIViewController {
   }
 
   //----------------------------------------------------------------------------
-  // MARK: - what date i need for the time interval
+  // MARK: - What date i need for the time interval
   //----------------------------------------------------------------------------
-  
+
+  ///  Check if the next stream is today or tomorow
   private var whatDate: TimeInterval {
     let todayDateStream =
     Calendar.current.date(bySettingHour: 20, minute: 30, second: 0, of: Date())!
@@ -185,7 +196,8 @@ class StreamViewController: UIViewController {
   //----------------------------------------------------------------------------
   // MARK: - Timer
   //----------------------------------------------------------------------------
-  
+
+  /// Manage de timer.
   func startTimer() {
     
     
@@ -226,16 +238,12 @@ extension StreamViewController : UICollectionViewDataSource {
       return UICollectionViewCell()
     }
     cell.titleLabel.text = itemToShow
-
-
     cell.isCurrentDay = itemToShow == shortStringDay() ? true : false
-    
     return cell
   }
   
-  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    #warning("ICI PROBLEME J'AI FAIS days.count * 10 ")
+#warning("ICI PROBLEME J'AI FAIS days.count * 10 ")
     return days.count
   }
   
@@ -257,10 +265,7 @@ extension StreamViewController : UICollectionViewDelegate {
   func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
     let pageWidth = calendarCollectionView.bounds.size.width / 3
     let minimumSpacing: CGFloat = 10
-
     var cellToSwipe = Int(floor(scrollView.contentOffset.x / (pageWidth + minimumSpacing) + 0.5))
-
-
     let daysCount = days.count
     if cellToSwipe < 0 {
       cellToSwipe = 0
@@ -271,14 +276,11 @@ extension StreamViewController : UICollectionViewDelegate {
     let indexPath = IndexPath(row: cellToSwipe, section: 0)
     calendarCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
   }
-
-
 }
 
 //----------------------------------------------------------------------------
 // MARK: - Extension CollectionView Flow Layout
 //----------------------------------------------------------------------------
-
 
 extension StreamViewController : UICollectionViewDelegateFlowLayout {
 
@@ -290,14 +292,7 @@ extension StreamViewController : UICollectionViewDelegateFlowLayout {
     return CGSize(width: (collectionView.bounds.size.width / 3) ,
                   height: collectionView.bounds.size.height)
   }
-  
-
-
 }
-
-
-
-
 
 //    private func indexOfMajorCell() -> Int {
 //        let itemWidth = calendarCollectionView.bounds.size.width / 4 - 4

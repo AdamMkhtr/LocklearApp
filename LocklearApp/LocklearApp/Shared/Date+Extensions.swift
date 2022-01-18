@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 
 extension Date {
+  
+  //----------------------------------------------------------------------------
+  // MARK: - Properties
+  //----------------------------------------------------------------------------
+  
   static var yesterday: Date { return Date().dayBefore }
   static var tomorrow:  Date { return Date().dayAfter }
+  
   var dayBefore: Date {
     return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
   }
@@ -26,13 +32,19 @@ extension Date {
   var isLastDayOfMonth: Bool {
     return dayAfter.month != month
   }
-
+  
+  //----------------------------------------------------------------------------
+  // MARK: - Method
+  //----------------------------------------------------------------------------
+  
+  /// Check what is the dat of today
+  /// - Returns: Return the string of the day of today.
   func dayOfWeek() -> String? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
-
+    
     return dateFormatter.string(from: self).capitalized
-
+    
   }
 }
 

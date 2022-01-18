@@ -37,6 +37,7 @@ class YoutubeHeaderView: UITableViewHeaderFooterView {
     principaleLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
   }
 
+  /// Setup the gesture recognizer for the header youtube collection view
   func setupTapGestureRecognizer() {
     let tapGesturePrincipale = UITapGestureRecognizer()
     self.principaleView.addGestureRecognizer(tapGesturePrincipale)
@@ -55,6 +56,7 @@ class YoutubeHeaderView: UITableViewHeaderFooterView {
   // MARK: - Methods
   //----------------------------------------------------------------------------
 
+  /// Recolor all views if is not selected
   private func recolorAllView() {
     let selectedLabels: [UILabel] =
     [shortsLabel, principaleLabel, VODLabel]
@@ -63,26 +65,31 @@ class YoutubeHeaderView: UITableViewHeaderFooterView {
     }
   }
 
+  /// Change the color of the cell and call the delegate
   @objc func tapPrincipale() {
     recolorAllView()
     principaleLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     delegate?.didLauchRequestPrincipale()
   }
 
+  /// Change the color of the cell and call the delegate
   @objc func tapVOD() {
     recolorAllView()
     VODLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     delegate?.didLauchRequestVOD()
   }
 
+  ///Cchange the color of the cell and call the delegate
   @objc func tapShort() {
     recolorAllView()
     shortsLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     delegate?.didLauchRequestShort()
   }
-
 }
 
+//----------------------------------------------------------------------------
+// MARK: - Protocol
+//----------------------------------------------------------------------------
 
 protocol YoutubeHeaderDelegate: AnyObject {
   func didLauchRequestVOD()
